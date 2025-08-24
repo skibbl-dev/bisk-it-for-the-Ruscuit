@@ -18,6 +18,14 @@ config/icon="res://icon.svg"
 
 Conductor="*res://addons/conductor/condcutor.gd"
 
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=240
+window/size/window_width_override=960
+window/size/window_height_override=720
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/conductor/plugin.cfg")
