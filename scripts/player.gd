@@ -11,8 +11,9 @@ extends CharacterBody2D
 @export var sprite_scale_weight:float = 0.25
 
 @onready var sprite: Sprite2D = $Sprite
+@onready var weapon_pivot: Node2D = $WeaponPivot
 
-var FRAME_RATE
+var FRAME_RATE:float
 
 func _ready() -> void:
 	FRAME_RATE = Engine.get_physics_ticks_per_second()
@@ -20,6 +21,11 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var input = Input.get_vector("left", "right", "up", "down")
 	
+	_move(input, delta)
+	
+	_rotate_weapon()
+
+func _move(input, delta):
 	if(input != Vector2.ZERO):
 		velocity = velocity.move_toward(input*max_speed,accel*delta*FRAME_RATE)
 		_bend_sprite(velocity.angle(),velocity.length()/max_speed)
@@ -28,6 +34,10 @@ func _physics_process(delta: float) -> void:
 		_bend_sprite(sprite.rotation,0)
 	
 	move_and_slide()
+
+func _rotate_weapon():
+	#weapon_pivot.rotation = Vector2.ZERO.angle_to(mouse_pos)
+	weapon_pivot.rotation = get_angle_to(get_global_mouse_position())
 
 func _bend_sprite(direction:float,amount:float):
 	sprite.rotation = lerpf(sprite.rotation, direction, sprite_rotation_weight)

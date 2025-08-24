@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://sr188lxw1nlt"]
+
+[ext_resource type="Script" uid="uid://c0m4gjy6mxiog" path="res://scripts/shadow_shader.gd" id="1_5hu25"]
+[ext_resource type="Shader" uid="uid://b65bniw416aet" path="res://assets/shadow.gdshader" id="1_exj3w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5hu25"]
+shader = ExtResource("1_exj3w")
+shader_parameter/base_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_offset = Vector2(1, 1)
+
+[node name="ShadowShader" type="CanvasLayer"]
+follow_viewport_enabled = true
+script = ExtResource("1_5hu25")
+base_color = Color(0.352941, 0.290196, 0.321569, 1)
+shadow_color = Color(0.254902, 0.207843, 0.219608, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_5hu25")
+offset_right = 320.0
+offset_bottom = 240.0
