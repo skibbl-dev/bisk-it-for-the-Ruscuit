@@ -22,6 +22,15 @@ Conductor="*res://addons/conductor/condcutor.gd"
 
 enabled=PackedStringArray("res://addons/conductor/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "orange",
+"res://objects/": "blue",
+"res://scenes/": "purple",
+"res://scripts/": "green"
+}
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
