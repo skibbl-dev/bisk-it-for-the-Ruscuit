@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://dklgv56crsspv"]
+
+[ext_resource type="FontFile" uid="uid://foiic8me60qg" path="res://addons/Orbitron-VariableFont_wght.ttf" id="1_fgkus"]
+
+[node name="title_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 649.0
+color = Color(0.0063377, 0.00286734, 0.000477466, 0.352941)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 385.0
+offset_right = 669.0
+offset_bottom = 462.0
+text = "LIGMA"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 331.0
+offset_top = 88.0
+offset_right = 792.0
+offset_bottom = 169.0
+theme_override_fonts/font = ExtResource("1_fgkus")
+theme_override_font_sizes/font_size = 64
+text = "Tempo Goon"
+horizontal_alignment = 1
