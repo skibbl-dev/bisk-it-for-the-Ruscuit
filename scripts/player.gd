@@ -1,8 +1,14 @@
 extends CharacterBody2D
 
+@export_category("Move Variables")
 @export var accel:float = 40
 @export var max_speed:float = 110
 @export var decel:float = 0.9
+
+@export_category("Sprite Variables")
+@export var sprite_stretch:float = 0.4
+@export var sprite_rotation_weight:float = 0.45
+@export var sprite_scale_weight:float = 0.25
 
 @onready var sprite: Sprite2D = $Sprite
 
@@ -16,7 +22,13 @@ func _physics_process(delta: float) -> void:
 	
 	if(input != Vector2.ZERO):
 		velocity = velocity.move_toward(input*max_speed,accel*delta*FRAME_RATE)
+		_bend_sprite(velocity.angle(),velocity.length()/max_speed)
 	else:
 		velocity *= decel
+		_bend_sprite(sprite.rotation,0)
 	
 	move_and_slide()
+
+func _bend_sprite(direction:float,amount:float):
+	sprite.rotation = lerpf(sprite.rotation, direction, sprite_rotation_weight)
+	sprite.scale.x = lerpf(sprite.scale.x, 1+(amount*sprite_stretch), sprite_scale_weight)
