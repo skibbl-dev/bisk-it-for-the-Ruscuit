@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dklgv56crsspv"]
+[gd_scene load_steps=8 format=3 uid="uid://dklgv56crsspv"]
 
 [ext_resource type="FontFile" uid="uid://foiic8me60qg" path="res://addons/Orbitron-VariableFont_wght.ttf" id="1_fgkus"]
 [ext_resource type="Script" uid="uid://couspfuhj0jue" path="res://scripts/title_screen.gd" id="1_sa3yf"]
@@ -7,9 +7,38 @@
 
 [sub_resource type="Animation" id="Animation_e54dn"]
 resource_name = "pulsing"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mgrm8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.1, 1.1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3yumr"]
 _data = {
+&"RESET": SubResource("Animation_mgrm8"),
 &"pulsing": SubResource("Animation_e54dn")
 }
 
@@ -23,7 +52,6 @@ grow_vertical = 2
 script = ExtResource("1_sa3yf")
 
 [node name="ShadowShader" parent="." instance=ExtResource("2_mgrm8")]
-base_color = Color(0.242723, 0.362551, 0.458458, 1)
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -46,6 +74,7 @@ offset_right = 169.0
 offset_bottom = -47.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.1, 1.1)
 theme_override_fonts/font = ExtResource("1_fgkus")
 theme_override_font_sizes/font_size = 30
 text = "Tempo Goon"
