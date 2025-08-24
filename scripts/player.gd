@@ -1,12 +1,17 @@
 extends CharacterBody2D
 
 @export_category("Move Variables")
-@export var accel:float = 40
+@export var accel:float = 50
 @export var max_speed:float = 110
 @export var decel:float = 0.83
 
-@export var dash_time:float = 1
-@export var dash_distance:float = 60
+@export var dash_time:float = 0.9
+@export var dash_distance:float = 90
+#@export var dash_speed:float = 140
+@export var dash_cooldown:float = 1
+
+@export_category("Rhythm Variables")
+@export var input_window:float = 0.3
 
 @export_category("Sprite Variables")
 @export var sprite_stretch:float = 0.4
@@ -18,32 +23,71 @@ extends CharacterBody2D
 
 @onready var attack_animation_player: AnimationPlayer = $WeaponPivot/AttackAnimationPlayer
 
+@onready var dash_timer: ConductedTimer = $DashTimer
+var dashing:bool = false
+var last_dash_beat:int
+var dash_direction:Vector2
+var dash_speed:float
+
 var FRAME_RATE:float
+var acted_this_beat:bool = false
 
 func _ready() -> void:
 	FRAME_RATE = Engine.get_physics_ticks_per_second()
+	dash_timer.wait_beats = dash_time
+	#Conductor.beat.connect(_beat)
+#
+#func _beat(_beat):
+	#acted_this_beat = false
 
 func _physics_process(delta: float) -> void:
+	_rotate_weapon()
+	
+	if(dashing):
+		#position += dash_direction*dash_speed*FRAME_RATE*delta
+		velocity = dash_direction*dash_speed
+		move_and_slide()
+		_bend_sprite(dash_direction.angle(),1.8)
+		return
+	
 	var input = Input.get_vector("left", "right", "up", "down")
 	
-	if (Input.is_action_just_pressed("parry")):
-		attack_animation_player.play("attack")
+	_dash()
+	_parry()
 	
-	if (Input.is_action_just_pressed("dash")):
-		position += position.direction_to(get_global_mouse_position())*dash_distance
+	if(Conductor.current_beat - floor(Conductor.current_beat) > input_window ):
+		acted_this_beat = false
 	
 	_move(input, delta)
-	_rotate_weapon()
 
 func _move(input, delta):
 	if(input != Vector2.ZERO):
+		#velocity = velocity.move_toward(input*max_speed*Conductor.beat_per_sec,accel*delta*FRAME_RATE*Conductor.beat_per_sec)
+		#_bend_sprite(velocity.angle(), velocity.length() / (max_speed*Conductor.beat_per_sec))
 		velocity = velocity.move_toward(input*max_speed,accel*delta*FRAME_RATE)
-		_bend_sprite(velocity.angle(),velocity.length()/max_speed)
+		_bend_sprite(velocity.angle(), velocity.length() / max_speed)
 	else:
-		velocity *= decel
+		velocity *= decel*delta
 		_bend_sprite(sprite.rotation,0)
 	
 	move_and_slide()
+
+func _dash():
+	if (Input.is_action_just_pressed("dash") and (round(Conductor.current_beat) - last_dash_beat) >= (dash_time + dash_cooldown)
+	and !acted_this_beat and abs(Conductor.current_beat - round(Conductor.current_beat)) <= input_window ):
+		#position += position.direction_to(get_global_mouse_position())*dash_distance
+		dash_timer.start()
+		dashing = true
+		dash_direction = position.direction_to(get_global_mouse_position())
+		dash_speed = (dash_distance/(dash_time*Conductor.sec_per_beat))
+		last_dash_beat = round(Conductor.current_beat)
+		acted_this_beat = true
+
+func _parry():
+	if (Input.is_action_just_pressed("parry")
+	and !acted_this_beat and abs(Conductor.current_beat - round(Conductor.current_beat)) <= input_window ):
+		attack_animation_player.play("attack")
+		acted_this_beat = true
 
 func _rotate_weapon():
 	#weapon_pivot.rotation = Vector2.ZERO.angle_to(mouse_pos)
@@ -53,3 +97,7 @@ func _bend_sprite(direction:float,amount:float):
 	sprite.rotation = lerp_angle(sprite.rotation, direction, sprite_rotation_weight)
 	
 	sprite.scale.x = lerpf(sprite.scale.x, 1+(amount*sprite_stretch), sprite_scale_weight)
+
+func _on_dash_timer_timeout() -> void:
+	dashing = false
+	acted_this_beat = false

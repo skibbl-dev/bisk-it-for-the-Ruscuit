@@ -1,11 +1,39 @@
-[gd_scene load_steps=11 format=3 uid="uid://bitjw4ddfb7do"]
+[gd_scene load_steps=12 format=3 uid="uid://bitjw4ddfb7do"]
 
 [ext_resource type="Script" uid="uid://bg0johx5wrgae" path="res://scripts/player.gd" id="1_8ak8y"]
 [ext_resource type="Texture2D" uid="uid://dwjxl8iv78mhb" path="res://assets/sprites/Player.png" id="2_gndvh"]
 [ext_resource type="Texture2D" uid="uid://df300iu55uj4k" path="res://assets/sprites/weapon.png" id="3_6vqvp"]
+[ext_resource type="Script" uid="uid://dsk3wv1yb4rho" path="res://addons/conductor/conducted_timer.gd" id="4_f6j3j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gndvh"]
 size = Vector2(14, 14)
+
+[sub_resource type="Animation" id="Animation_seukq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Particles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Area2D/CollisionPolygon2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_f6j3j"]
 resource_name = "attack"
@@ -33,33 +61,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
-}
-
-[sub_resource type="Animation" id="Animation_seukq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Particles:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/CollisionPolygon2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_seukq"]
@@ -90,6 +91,11 @@ color_ramp = SubResource("GradientTexture1D_f6j3j")
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_8ak8y")
+
+[node name="DashTimer" type="Node" parent="."]
+script = ExtResource("4_f6j3j")
+one_shot = true
+metadata/_custom_type_script = "uid://dsk3wv1yb4rho"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_gndvh")
@@ -126,3 +132,5 @@ monitoring = false
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WeaponPivot/Area2D"]
 polygon = PackedVector2Array(12, -11, 18, 0, 12, 11, 25, 13, 31, 0, 25, -13)
 disabled = true
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

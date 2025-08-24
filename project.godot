@@ -32,7 +32,7 @@ window/layer_1="Bullets"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/conductor/plugin.cfg", "res://addons/crt/plugin.cfg")
+enabled=PackedStringArray("res://addons/conductor/plugin.cfg")
 
 [file_customization]
 

@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://sr188lxw1nlt" path="res://objects/shadow_shader.tscn" id="2_mgrm8"]
 [ext_resource type="Script" uid="uid://cee2638n8ojsx" path="res://addons/conductor/conducted_animation_player.gd" id="4_dc4i4"]
 
+[sub_resource type="Animation" id="Animation_mgrm8"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_e54dn"]
 resource_name = "pulsing"
 loop_mode = 1
@@ -33,9 +36,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
 }
-
-[sub_resource type="Animation" id="Animation_mgrm8"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3yumr"]
 _data = {
