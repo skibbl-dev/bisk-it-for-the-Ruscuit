@@ -1,32 +1,60 @@
-[gd_scene load_steps=2 format=3 uid="uid://dklgv56crsspv"]
+[gd_scene load_steps=7 format=3 uid="uid://dklgv56crsspv"]
 
 [ext_resource type="FontFile" uid="uid://foiic8me60qg" path="res://addons/Orbitron-VariableFont_wght.ttf" id="1_fgkus"]
+[ext_resource type="Script" uid="uid://couspfuhj0jue" path="res://scripts/title_screen.gd" id="1_sa3yf"]
+[ext_resource type="PackedScene" path="res://objects/shadow_shader.tscn" id="2_mgrm8"]
+[ext_resource type="Script" uid="uid://cee2638n8ojsx" path="res://addons/conductor/conducted_animation_player.gd" id="4_dc4i4"]
+
+[sub_resource type="Animation" id="Animation_e54dn"]
+resource_name = "pulsing"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3yumr"]
+_data = {
+&"pulsing": SubResource("Animation_e54dn")
+}
 
 [node name="title_screen" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sa3yf")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 649.0
-color = Color(0.0063377, 0.00286734, 0.000477466, 0.352941)
+[node name="ShadowShader" parent="." instance=ExtResource("2_mgrm8")]
+base_color = Color(0.242723, 0.362551, 0.458458, 1)
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 446.0
-offset_top = 385.0
-offset_right = 669.0
-offset_bottom = 462.0
-text = "LIGMA"
+offset_left = 43.0
+offset_top = 154.0
+offset_right = 266.0
+offset_bottom = 185.0
+text = "LIGMA BALLS"
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 331.0
-offset_top = 88.0
-offset_right = 792.0
-offset_bottom = 169.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -99.0
+offset_right = 169.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_fgkus")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 30
 text = "Tempo Goon"
 horizontal_alignment = 1
+
+[node name="ConductedAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3yumr")
+}
+script = ExtResource("4_dc4i4")
+round_start_beat = true
+metadata/_custom_type_script = "uid://cee2638n8ojsx"
