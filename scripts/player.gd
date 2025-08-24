@@ -3,7 +3,10 @@ extends CharacterBody2D
 @export_category("Move Variables")
 @export var accel:float = 40
 @export var max_speed:float = 110
-@export var decel:float = 0.9
+@export var decel:float = 0.83
+
+@export var dash_time:float = 1
+@export var dash_distance:float = 60
 
 @export_category("Sprite Variables")
 @export var sprite_stretch:float = 0.4
@@ -13,6 +16,8 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = $Sprite
 @onready var weapon_pivot: Node2D = $WeaponPivot
 
+@onready var attack_animation_player: AnimationPlayer = $WeaponPivot/AttackAnimationPlayer
+
 var FRAME_RATE:float
 
 func _ready() -> void:
@@ -21,8 +26,13 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var input = Input.get_vector("left", "right", "up", "down")
 	
-	_move(input, delta)
+	if (Input.is_action_just_pressed("parry")):
+		attack_animation_player.play("attack")
 	
+	if (Input.is_action_just_pressed("dash")):
+		position += position.direction_to(get_global_mouse_position())*dash_distance
+	
+	_move(input, delta)
 	_rotate_weapon()
 
 func _move(input, delta):

@@ -7,15 +7,15 @@
 shader = ExtResource("1_exj3w")
 shader_parameter/base_color = Color(0, 0, 0, 1)
 shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/viewport_size = Vector2(320, 240)
 shader_parameter/shadow_offset = Vector2(1, 1)
 
 [node name="ShadowShader" type="CanvasLayer"]
-follow_viewport_enabled = true
 script = ExtResource("1_5hu25")
 base_color = Color(0.352941, 0.290196, 0.321569, 1)
 shadow_color = Color(0.254902, 0.207843, 0.219608, 1)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_5hu25")
-offset_right = 320.0
-offset_bottom = 240.0
+offset_right = 480.0
+offset_bottom = 360.0

@@ -21,15 +21,18 @@ Conductor="*res://addons/conductor/condcutor.gd"
 
 [display]
 
-window/size/viewport_width=320
-window/size/viewport_height=240
+window/size/viewport_width=480
+window/size/viewport_height=360
 window/size/window_width_override=960
 window/size/window_height_override=720
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+window/layer_2="Enemies/Bullets"
+window/layer_3="PlayerAttack"
+window/layer_1="Bullets"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/conductor/plugin.cfg")
+enabled=PackedStringArray("res://addons/conductor/plugin.cfg", "res://addons/crt/plugin.cfg")
 
 [file_customization]
 
