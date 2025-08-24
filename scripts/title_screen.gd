@@ -3,6 +3,7 @@ extends Control
 const MISTA_GREEN_ROUGH_START = preload("res://assets/music/mista green rough start.wav")
 const MISTA_GREEN_ROUGH_LOOP = preload("res://assets/music/mista green rough loop.wav")
 
+@onready var names: Label = $names
 @onready var conducted_player: ConductedAnimationPlayer = $ConductedAnimationPlayer
 
 func _ready() -> void:
@@ -14,3 +15,4 @@ func _ready() -> void:
 func _loop():
 	Conductor.set_song(MISTA_GREEN_ROUGH_LOOP, 81)
 	Conductor.play()
+	
