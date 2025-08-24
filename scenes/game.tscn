@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://rsgpxupbcy8a"]
+
+[ext_resource type="PackedScene" uid="uid://bitjw4ddfb7do" path="res://objects/Player.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://sr188lxw1nlt" path="res://objects/shadow_shader.tscn" id="2_lnu2h"]
+
+[node name="game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_yqjtg")]
+
+[node name="ShadowShader" parent="." instance=ExtResource("2_lnu2h")]

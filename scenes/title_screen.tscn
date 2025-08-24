@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://foiic8me60qg" path="res://addons/Orbitron-VariableFont_wght.ttf" id="1_fgkus"]
 [ext_resource type="Script" uid="uid://couspfuhj0jue" path="res://scripts/title_screen.gd" id="1_sa3yf"]
-[ext_resource type="PackedScene" path="res://objects/shadow_shader.tscn" id="2_mgrm8"]
+[ext_resource type="PackedScene" uid="uid://sr188lxw1nlt" path="res://objects/shadow_shader.tscn" id="2_mgrm8"]
 [ext_resource type="Script" uid="uid://cee2638n8ojsx" path="res://addons/conductor/conducted_animation_player.gd" id="4_dc4i4"]
 
 [sub_resource type="Animation" id="Animation_e54dn"]

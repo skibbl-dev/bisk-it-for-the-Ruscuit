@@ -40,5 +40,6 @@ func _rotate_weapon():
 	weapon_pivot.rotation = get_angle_to(get_global_mouse_position())
 
 func _bend_sprite(direction:float,amount:float):
-	sprite.rotation = lerpf(sprite.rotation, direction, sprite_rotation_weight)
+	sprite.rotation = lerp_angle(sprite.rotation, direction, sprite_rotation_weight)
+	
 	sprite.scale.x = lerpf(sprite.scale.x, 1+(amount*sprite_stretch), sprite_scale_weight)

@@ -1,12 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://bb4wfku36enm7"]
+[gd_scene load_steps=8 format=3 uid="uid://bitjw4ddfb7do"]
 
 [ext_resource type="Script" uid="uid://bg0johx5wrgae" path="res://scripts/player.gd" id="1_8ak8y"]
 [ext_resource type="Texture2D" uid="uid://dwjxl8iv78mhb" path="res://assets/sprites/Player.png" id="2_gndvh"]
 [ext_resource type="Texture2D" uid="uid://df300iu55uj4k" path="res://assets/sprites/weapon.png" id="3_6vqvp"]
-[ext_resource type="PackedScene" path="res://objects/shadow_shader.tscn" id="4_f6j3j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gndvh"]
 size = Vector2(14, 14)
+
+[sub_resource type="Gradient" id="Gradient_6vqvp"]
+offsets = PackedFloat32Array(0, 0.0634675, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.839246, 0.811073, 0.870734, 1, 0.619608, 0.552941, 0.694118, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f6j3j"]
+gradient = SubResource("Gradient_6vqvp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6vqvp"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0, 10, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+initial_velocity_min = 15.5
+initial_velocity_max = 64.6
+gravity = Vector3(0, 0, 0)
+scale_min = 1.5
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_f6j3j")
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_8ak8y")
@@ -19,9 +37,22 @@ texture = ExtResource("2_gndvh")
 
 [node name="WeaponPivot" type="Node2D" parent="."]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WeaponPivot"]
+
+[node name="Particle" type="GPUParticles2D" parent="WeaponPivot"]
+position = Vector2(18, 0)
+emitting = false
+amount = 128
+lifetime = 0.17
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_6vqvp")
+
 [node name="Weapon" type="Sprite2D" parent="WeaponPivot"]
 position = Vector2(16, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_6vqvp")
 
-[node name="ShadowShader" parent="." instance=ExtResource("4_f6j3j")]
+[node name="Area2D" type="Area2D" parent="WeaponPivot"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WeaponPivot/Area2D"]
+polygon = PackedVector2Array(12, -11, 18, 0, 12, 11, 25, 13, 31, 0, 25, -13)
