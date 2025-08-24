@@ -53,6 +53,9 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_6vqvp")
 
 [node name="Area2D" type="Area2D" parent="WeaponPivot"]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WeaponPivot/Area2D"]
 polygon = PackedVector2Array(12, -11, 18, 0, 12, 11, 25, 13, 31, 0, 25, -13)
