@@ -26,6 +26,7 @@ window/size/viewport_height=360
 window/size/window_width_override=960
 window/size/window_height_override=720
 window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 window/layer_2="Enemies/Bullets"
 window/layer_3="PlayerAttack"
 window/layer_1="Bullets"
@@ -84,9 +85,10 @@ dash={
 
 [layer_names]
 
-2d_physics/layer_1="Bullets"
-2d_physics/layer_2="Enemies/Bullets"
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Bullets"
 2d_physics/layer_3="PlayerAttack"
+2d_physics/layer_4="border"
 
 [rendering]
 

@@ -1,17 +1,16 @@
 extends CharacterBody2D
 
 @export_category("Move Variables")
-@export var accel:float = 50
-@export var max_speed:float = 110
+@export var accel:float = 60
+@export var max_speed:float = 126
 @export var decel:float = 0.83
 
 @export var dash_time:float = 0.9
 @export var dash_distance:float = 90
-#@export var dash_speed:float = 140
-@export var dash_cooldown:float = 1
+@export var dash_cooldown:float = 0.75
 
 @export_category("Rhythm Variables")
-@export var input_window:float = 0.3
+@export var input_window:float = 0.25
 
 @export_category("Sprite Variables")
 @export var sprite_stretch:float = 0.4
@@ -48,6 +47,10 @@ func _physics_process(delta: float) -> void:
 		velocity = dash_direction*dash_speed
 		move_and_slide()
 		_bend_sprite(dash_direction.angle(),1.8)
+		
+		if(Input.is_action_just_pressed("dash")):
+			dashing = false
+		
 		return
 	
 	var input = Input.get_vector("left", "right", "up", "down")
@@ -74,12 +77,14 @@ func _move(input, delta):
 
 func _dash():
 	if (Input.is_action_just_pressed("dash") and (round(Conductor.current_beat) - last_dash_beat) >= (dash_time + dash_cooldown)
+	
 	and !acted_this_beat and abs(Conductor.current_beat - round(Conductor.current_beat)) <= input_window ):
 		#position += position.direction_to(get_global_mouse_position())*dash_distance
-		dash_timer.start()
 		dashing = true
 		dash_direction = position.direction_to(get_global_mouse_position())
-		dash_speed = (dash_distance/(dash_time*Conductor.sec_per_beat))
+		var new_dash_time = dash_time - (Conductor.current_beat - round(Conductor.current_beat))
+		dash_timer.start(new_dash_time)
+		dash_speed = (dash_distance/(new_dash_time*Conductor.sec_per_beat))
 		last_dash_beat = round(Conductor.current_beat)
 		acted_this_beat = true
 

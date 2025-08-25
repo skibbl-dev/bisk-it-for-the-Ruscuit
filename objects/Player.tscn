@@ -89,7 +89,7 @@ scale_min = 1.5
 scale_max = 2.0
 color_ramp = SubResource("GradientTexture1D_f6j3j")
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_8ak8y")
 
 [node name="DashTimer" type="Node" parent="."]
