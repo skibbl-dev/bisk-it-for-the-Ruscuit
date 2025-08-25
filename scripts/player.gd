@@ -5,8 +5,8 @@ extends CharacterBody2D
 @export var max_speed:float = 126
 @export var decel:float = 0.83
 
-@export var dash_time:float = 0.9
-@export var dash_distance:float = 90
+@export var dash_time:float = 1.9
+@export var dash_distance:float = 180
 @export var dash_cooldown:float = 0.6
 
 @export_category("Rhythm Variables")
