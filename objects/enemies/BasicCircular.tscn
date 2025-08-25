@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0bavx3hgiyhd"]
+
+[ext_resource type="PackedScene" uid="uid://cmfijyyvwcq5i" path="res://objects/enemy.tscn" id="1_31uyb"]
+[ext_resource type="Texture2D" uid="uid://vokho1uhu7h8" path="res://assets/sprites/enemy01.png" id="2_ieb3v"]
+[ext_resource type="PackedScene" uid="uid://cph18p2giha63" path="res://objects/bullets/circular_bullets.tscn" id="2_r03dv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r03dv"]
+radius = 8.5
+
+[sub_resource type="Animation" id="Animation_ieb3v"]
+resource_name = "start"
+length = 0.001
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"circular_shoot"],
+"method": &"change_animation"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_r03dv"]
+resource_name = "circular_shoot"
+length = 4.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0, 0.0, 0.0, Vector2(8.5, 8.5)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, 22.5, Vector2(8.5, 8.5)],
+"method": &"summon_bullet"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r03dv"]
+_data = {
+&"circular_shoot": SubResource("Animation_r03dv"),
+&"start": SubResource("Animation_ieb3v")
+}
+
+[node name="Enemy" instance=ExtResource("1_31uyb")]
+bullets = Array[PackedScene]([ExtResource("2_r03dv")])
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(8.5, 8.5)
+shape = SubResource("CircleShape2D_r03dv")
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource("2_ieb3v")
+centered = false
+
+[node name="CollisionShape2D" parent="hurtbox" index="0"]
+position = Vector2(8.5, 8.5)
+shape = SubResource("CircleShape2D_r03dv")
+
+[node name="ConductedAnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_r03dv")
+}
