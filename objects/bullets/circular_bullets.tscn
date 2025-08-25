@@ -14,7 +14,6 @@ hittable_color = Color(0.521569, 0.603922, 0.654902, 1)
 deflectable_color = Color(0.619608, 0.552941, 0.694118, 1)
 
 [node name="Bullet" type="Area2D" parent="."]
-position = Vector2(4, 0)
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("2_3mk8m")
@@ -29,7 +28,6 @@ shape = SubResource("CircleShape2D_xh0ww")
 metadata/_edit_lock_ = true
 
 [node name="Bullet4" type="Area2D" parent="."]
-position = Vector2(0, 4)
 rotation = 1.5708
 collision_layer = 2
 collision_mask = 9
@@ -45,7 +43,6 @@ shape = SubResource("CircleShape2D_xh0ww")
 metadata/_edit_lock_ = true
 
 [node name="Bullet5" type="Area2D" parent="."]
-position = Vector2(3, -3)
 rotation = -0.785398
 collision_layer = 2
 collision_mask = 9
@@ -61,7 +58,6 @@ shape = SubResource("CircleShape2D_xh0ww")
 metadata/_edit_lock_ = true
 
 [node name="Bullet6" type="Area2D" parent="."]
-position = Vector2(-3, -3)
 rotation = -2.35619
 collision_layer = 2
 collision_mask = 9
@@ -77,7 +73,6 @@ shape = SubResource("CircleShape2D_xh0ww")
 metadata/_edit_lock_ = true
 
 [node name="Bullet7" type="Area2D" parent="."]
-position = Vector2(3, 3)
 rotation = 0.785398
 collision_layer = 2
 collision_mask = 9
@@ -93,7 +88,6 @@ shape = SubResource("CircleShape2D_xh0ww")
 metadata/_edit_lock_ = true
 
 [node name="Bullet8" type="Area2D" parent="."]
-position = Vector2(-3, 3)
 rotation = 2.35619
 collision_layer = 2
 collision_mask = 9
@@ -109,7 +103,6 @@ shape = SubResource("CircleShape2D_xh0ww")
 metadata/_edit_lock_ = true
 
 [node name="Bullet3" type="Area2D" parent="."]
-position = Vector2(0, -4)
 rotation = -1.5708
 collision_layer = 2
 collision_mask = 9
@@ -125,7 +118,6 @@ shape = SubResource("CircleShape2D_xh0ww")
 metadata/_edit_lock_ = true
 
 [node name="Bullet2" type="Area2D" parent="."]
-position = Vector2(-4, 0)
 rotation = -3.14159
 collision_layer = 2
 collision_mask = 9

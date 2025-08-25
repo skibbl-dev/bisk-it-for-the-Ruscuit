@@ -103,6 +103,7 @@ shape = SubResource("RectangleShape2D_gndvh")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_gndvh")
+hframes = 4
 
 [node name="WeaponPivot" type="Node2D" parent="."]
 

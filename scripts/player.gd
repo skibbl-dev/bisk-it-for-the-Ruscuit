@@ -25,7 +25,7 @@ extends CharacterBody2D
 @onready var dash_timer: ConductedTimer = $DashTimer
 var dashing:bool = false
 var last_dash_beat:int
-var dash_direction:Vector2
+#var dash_direction:Vector2
 var dash_speed:float
 
 var FRAME_RATE:float
@@ -42,12 +42,14 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	_rotate_weapon()
 	
+	var input = Input.get_vector("left", "right", "up", "down")
+	
 	if(dashing):
 		#position += dash_direction*dash_speed*FRAME_RATE*delta
 		sprite.modulate = Color(1.3,1.3,1.3)
-		velocity = dash_direction*dash_speed
+		velocity = input*dash_speed
 		move_and_slide()
-		_bend_sprite(dash_direction.angle(),1.8)
+		_bend_sprite(input.angle(),1.8)
 		
 		if(Input.is_action_just_pressed("dash")):
 			dashing = false
@@ -55,7 +57,6 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	sprite.modulate = Color(1,1,1)
-	var input = Input.get_vector("left", "right", "up", "down")
 	
 	_dash()
 	_parry()
@@ -82,7 +83,7 @@ func _dash():
 	and !acted_this_beat and abs(Conductor.current_beat - round(Conductor.current_beat)) <= input_window ):
 		#position += position.direction_to(get_global_mouse_position())*dash_distance
 		dashing = true
-		dash_direction = position.direction_to(get_global_mouse_position())
+		#dash_direction = position.direction_to(get_global_mouse_position())
 		var new_dash_time = dash_time - (Conductor.current_beat - round(Conductor.current_beat))
 		dash_timer.start(new_dash_time)
 		dash_speed = (dash_distance/(new_dash_time*Conductor.sec_per_beat))
@@ -111,5 +112,5 @@ func _on_dash_timer_timeout() -> void:
 func _on_hurtbox_area_entered(_area: Area2D) -> void:
 	if(dashing):
 		return
-	print("OW")
+	sprite.frame+=1
 	_area.kill()
