@@ -83,10 +83,10 @@ tracks/0/path = NodePath("Particles:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.17),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -179,7 +179,7 @@ collision_mask = 0
 monitoring = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WeaponPivot/Area2D"]
-polygon = PackedVector2Array(12, -11, 18, 0, 12, 11, 25, 13, 31, 0, 25, -13)
+polygon = PackedVector2Array(12, -11, 18, 0, 12, 11, 33, 13, 40, 0, 33, -13)
 disabled = true
 
 [node name="hurtbox" type="Area2D" parent="."]
