@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://rsgpxupbcy8a"]
 
-[ext_resource type="Script" path="res://scripts/game.gd" id="1_lbhrr"]
+[ext_resource type="Script" uid="uid://drdvmo3fesqq6" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bitjw4ddfb7do" path="res://objects/Player.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://sr188lxw1nlt" path="res://objects/shadow_shader.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://d0bavx3hgiyhd" path="res://objects/enemies/BasicCircular.tscn" id="4_lbhrr"]

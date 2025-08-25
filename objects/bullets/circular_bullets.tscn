@@ -9,13 +9,10 @@ radius = 2.0
 
 [node name="CircularBullets" type="Node2D"]
 script = ExtResource("1_086hb")
-normal_color = Color(0.721569, 0.52549, 0.52549, 1)
-hittable_color = Color(0.521569, 0.603922, 0.654902, 1)
-deflectable_color = Color(0.619608, 0.552941, 0.694118, 1)
 
 [node name="Bullet" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 9
+collision_mask = 13
 script = ExtResource("2_3mk8m")
 speed = 70.0
 
@@ -30,7 +27,7 @@ metadata/_edit_lock_ = true
 [node name="Bullet4" type="Area2D" parent="."]
 rotation = 1.5708
 collision_layer = 2
-collision_mask = 9
+collision_mask = 13
 script = ExtResource("2_3mk8m")
 speed = 70.0
 
@@ -45,7 +42,7 @@ metadata/_edit_lock_ = true
 [node name="Bullet5" type="Area2D" parent="."]
 rotation = -0.785398
 collision_layer = 2
-collision_mask = 9
+collision_mask = 13
 script = ExtResource("2_3mk8m")
 speed = 70.0
 
@@ -60,7 +57,7 @@ metadata/_edit_lock_ = true
 [node name="Bullet6" type="Area2D" parent="."]
 rotation = -2.35619
 collision_layer = 2
-collision_mask = 9
+collision_mask = 13
 script = ExtResource("2_3mk8m")
 speed = 70.0
 
@@ -75,7 +72,7 @@ metadata/_edit_lock_ = true
 [node name="Bullet7" type="Area2D" parent="."]
 rotation = 0.785398
 collision_layer = 2
-collision_mask = 9
+collision_mask = 13
 script = ExtResource("2_3mk8m")
 speed = 70.0
 
@@ -90,7 +87,7 @@ metadata/_edit_lock_ = true
 [node name="Bullet8" type="Area2D" parent="."]
 rotation = 2.35619
 collision_layer = 2
-collision_mask = 9
+collision_mask = 13
 script = ExtResource("2_3mk8m")
 speed = 70.0
 
@@ -105,7 +102,7 @@ metadata/_edit_lock_ = true
 [node name="Bullet3" type="Area2D" parent="."]
 rotation = -1.5708
 collision_layer = 2
-collision_mask = 9
+collision_mask = 13
 script = ExtResource("2_3mk8m")
 speed = 70.0
 
@@ -120,7 +117,7 @@ metadata/_edit_lock_ = true
 [node name="Bullet2" type="Area2D" parent="."]
 rotation = -3.14159
 collision_layer = 2
-collision_mask = 9
+collision_mask = 13
 script = ExtResource("2_3mk8m")
 speed = 70.0
 
