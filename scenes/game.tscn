@@ -62,7 +62,7 @@ rotation = 1.57079
 shape = SubResource("RectangleShape2D_lbhrr")
 
 [node name="Enemy" parent="." instance=ExtResource("4_lbhrr")]
-position = Vector2(381, 93)
+position = Vector2(357, 107)
 
 [node name="Enemy2" parent="." instance=ExtResource("4_lbhrr")]
 position = Vector2(218, 46)
