@@ -3,9 +3,16 @@ extends Area2D
 @export var speed:float = 60
 @export var deflectable:bool = false
 
+@export var normal_color:Color = Color(0.722, 0.525, 0.525)
+@export var deflectable_color:Color = Color(0.62, 0.553, 0.694)
+@export_range(0,1,0.1) var chance_for_deflectable:float = 0.3
+
 @onready var FRAME_RATE:float = Engine.get_physics_ticks_per_second()
 
 func _ready() -> void:
+	if(randf()<=chance_for_deflectable):
+		modulate = deflectable_color
+		deflectable = true
 	for child in get_children():
 		if (child is Sprite2D):
 			child.global_rotation = -global_rotation
