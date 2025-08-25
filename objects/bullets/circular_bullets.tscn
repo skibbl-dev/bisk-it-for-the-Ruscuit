@@ -131,19 +131,11 @@ metadata/_edit_lock_ = true
 shape = SubResource("CircleShape2D_xh0ww")
 metadata/_edit_lock_ = true
 
-[connection signal="area_entered" from="Bullet" to="." method="_on_bullet_area_entered"]
 [connection signal="area_entered" from="Bullet" to="Bullet" method="_on_area_entered"]
-[connection signal="area_entered" from="Bullet4" to="." method="_on_bullet_area_entered"]
 [connection signal="area_entered" from="Bullet4" to="Bullet4" method="_on_area_entered"]
-[connection signal="area_entered" from="Bullet5" to="." method="_on_bullet_area_entered"]
 [connection signal="area_entered" from="Bullet5" to="Bullet5" method="_on_area_entered"]
-[connection signal="area_entered" from="Bullet6" to="." method="_on_bullet_area_entered"]
 [connection signal="area_entered" from="Bullet6" to="Bullet6" method="_on_area_entered"]
-[connection signal="area_entered" from="Bullet7" to="." method="_on_bullet_area_entered"]
 [connection signal="area_entered" from="Bullet7" to="Bullet7" method="_on_area_entered"]
-[connection signal="area_entered" from="Bullet8" to="." method="_on_bullet_area_entered"]
 [connection signal="area_entered" from="Bullet8" to="Bullet8" method="_on_area_entered"]
-[connection signal="area_entered" from="Bullet3" to="." method="_on_bullet_area_entered"]
 [connection signal="area_entered" from="Bullet3" to="Bullet3" method="_on_area_entered"]
-[connection signal="area_entered" from="Bullet2" to="." method="_on_bullet_area_entered"]
 [connection signal="area_entered" from="Bullet2" to="Bullet2" method="_on_area_entered"]
