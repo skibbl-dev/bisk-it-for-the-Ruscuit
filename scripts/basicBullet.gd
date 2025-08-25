@@ -13,6 +13,8 @@ func _ready() -> void:
 	if(randf()<=chance_for_deflectable):
 		modulate = deflectable_color
 		deflectable = true
+	else:
+		modulate = normal_color
 	for child in get_children():
 		if (child is Sprite2D):
 			child.global_rotation = -global_rotation
