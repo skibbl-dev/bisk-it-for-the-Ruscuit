@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 @onready var anim_player: ConductedAnimationPlayer = $ConductedAnimationPlayer
 
-var last_summoned_beat:float
+var last_summoned_beat:float = -1
 
 func _ready() -> void:
 	anim_player.play("start")
@@ -23,11 +23,12 @@ func summon_bullet(bullet:int, beat:float, angle:float=0, offset:Vector2=Vector2
 	
 	last_summoned_beat = beat
 	var new_bullet:Node2D = bullets[bullet].instantiate()
-	get_tree().get_root().get_child(1).add_child(new_bullet)
 	new_bullet.rotation_degrees = angle
+	new_bullet.global_position = global_position+offset
+	get_tree().get_root().get_child(1).add_child(new_bullet)
+	
 	if(angle == -999):
 		new_bullet.rotation = position.angle_to(get_tree().get_first_node_in_group("player").position)
-	new_bullet.global_position = global_position+offset
 
 func change_animation(_name:StringName):
 	anim_player.play(_name)

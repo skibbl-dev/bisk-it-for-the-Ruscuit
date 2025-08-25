@@ -7,15 +7,15 @@ extends CharacterBody2D
 
 @export var dash_time:float = 0.9
 @export var dash_distance:float = 90
-@export var dash_cooldown:float = 0.75
+@export var dash_cooldown:float = 0.6
 
 @export_category("Rhythm Variables")
-@export var input_window:float = 0.25
+@export var input_window:float = 0.3
 
 @export_category("Sprite Variables")
 @export var sprite_stretch:float = 0.4
 @export var sprite_rotation_weight:float = 0.45
-@export var sprite_scale_weight:float = 0.25
+@export var sprite_scale_weight:float = 0.3
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var weapon_pivot: Node2D = $WeaponPivot
@@ -44,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	
 	if(dashing):
 		#position += dash_direction*dash_speed*FRAME_RATE*delta
+		sprite.modulate = Color(1.3,1.3,1.3)
 		velocity = dash_direction*dash_speed
 		move_and_slide()
 		_bend_sprite(dash_direction.angle(),1.8)
@@ -53,12 +54,13 @@ func _physics_process(delta: float) -> void:
 		
 		return
 	
+	sprite.modulate = Color(1,1,1)
 	var input = Input.get_vector("left", "right", "up", "down")
 	
 	_dash()
 	_parry()
 	
-	if(Conductor.current_beat - floor(Conductor.current_beat) > input_window ):
+	if(Conductor.current_beat - round(Conductor.current_beat) > input_window ):
 		acted_this_beat = false
 	
 	_move(input, delta)
@@ -77,7 +79,6 @@ func _move(input, delta):
 
 func _dash():
 	if (Input.is_action_just_pressed("dash") and (round(Conductor.current_beat) - last_dash_beat) >= (dash_time + dash_cooldown)
-	
 	and !acted_this_beat and abs(Conductor.current_beat - round(Conductor.current_beat)) <= input_window ):
 		#position += position.direction_to(get_global_mouse_position())*dash_distance
 		dashing = true
@@ -106,3 +107,9 @@ func _bend_sprite(direction:float,amount:float):
 func _on_dash_timer_timeout() -> void:
 	dashing = false
 	acted_this_beat = false
+
+func _on_hurtbox_area_entered(_area: Area2D) -> void:
+	if(dashing):
+		return
+	print("OW")
+	_area.kill()

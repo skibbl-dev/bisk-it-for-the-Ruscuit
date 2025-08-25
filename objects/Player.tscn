@@ -90,6 +90,7 @@ scale_max = 2.0
 color_ramp = SubResource("GradientTexture1D_f6j3j")
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 0
 script = ExtResource("1_8ak8y")
 
 [node name="DashTimer" type="Node" parent="."]
@@ -113,7 +114,7 @@ libraries = {
 [node name="Particles" type="GPUParticles2D" parent="WeaponPivot"]
 position = Vector2(18, 0)
 emitting = false
-amount = 30
+amount = 40
 lifetime = 0.17
 one_shot = true
 explosiveness = 0.4
@@ -124,7 +125,7 @@ position = Vector2(16, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_6vqvp")
 
-[node name="Area2D" type="Area2D" parent="WeaponPivot"]
+[node name="Area2D" type="Area2D" parent="WeaponPivot" groups=["player_attack"]]
 collision_layer = 4
 collision_mask = 0
 monitoring = false
@@ -133,4 +134,12 @@ monitoring = false
 polygon = PackedVector2Array(12, -11, 18, 0, 12, 11, 25, 13, 31, 0, 25, -13)
 disabled = true
 
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+shape = SubResource("RectangleShape2D_gndvh")
+
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
