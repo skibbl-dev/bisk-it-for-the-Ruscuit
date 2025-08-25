@@ -10,7 +10,6 @@ func _ready() -> void:
 		if(randf()<=chance_for_deflectable):
 				child.modulate = deflectable_color
 				child.deflectable = true
-		child.init_masks()
 
 func check_children():
 	await get_tree().process_frame
