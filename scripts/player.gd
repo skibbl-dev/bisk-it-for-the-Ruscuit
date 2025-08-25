@@ -15,7 +15,7 @@ extends CharacterBody2D
 @export_category("Sprite Variables")
 @export var sprite_stretch:float = 0.4
 @export var sprite_rotation_weight:float = 0.45
-@export var sprite_scale_weight:float = 0.3
+@export var sprite_scale_weight:float = 0.33
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var weapon_pivot: Node2D = $WeaponPivot
