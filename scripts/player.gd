@@ -10,7 +10,7 @@ extends CharacterBody2D
 @export var dash_cooldown:float = 0.6
 
 @export_category("Rhythm Variables")
-@export var input_window:float = 0.325
+@export var input_window:float = 0.275
 
 @export_category("Sprite Variables")
 @export var sprite_stretch:float = 0.4
@@ -34,6 +34,7 @@ var acted_this_beat:bool = false
 func _ready() -> void:
 	FRAME_RATE = Engine.get_physics_ticks_per_second()
 	dash_timer.wait_beats = dash_time
+	$PulsePlayer.play("pulse")
 	#Conductor.beat.connect(_beat)
 #
 #func _beat(_beat):
@@ -65,7 +66,7 @@ func _physics_process(delta: float) -> void:
 	_dash()
 	_parry()
 	
-	if(Conductor.current_beat - round(Conductor.current_beat) > input_window ):
+	if(Conductor.current_beat - round(Conductor.current_beat) >= input_window ):
 		acted_this_beat = false
 	
 	_move(input, delta)

@@ -69,3 +69,7 @@ centered = false
 libraries = {
 &"": SubResource("AnimationLibrary_r03dv")
 }
+
+[node name="CollisionShape2D" parent="hurtbox" index="0"]
+position = Vector2(8.5, 8.5)
+shape = SubResource("CircleShape2D_r03dv")

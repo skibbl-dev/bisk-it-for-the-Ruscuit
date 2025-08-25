@@ -1,9 +1,47 @@
-[gd_scene load_steps=12 format=3 uid="uid://bitjw4ddfb7do"]
+[gd_scene load_steps=16 format=3 uid="uid://bitjw4ddfb7do"]
 
 [ext_resource type="Script" uid="uid://bg0johx5wrgae" path="res://scripts/player.gd" id="1_8ak8y"]
 [ext_resource type="Texture2D" uid="uid://dwjxl8iv78mhb" path="res://assets/sprites/Player.png" id="2_gndvh"]
 [ext_resource type="Texture2D" uid="uid://df300iu55uj4k" path="res://assets/sprites/weapon.png" id="3_6vqvp"]
+[ext_resource type="Script" uid="uid://cee2638n8ojsx" path="res://addons/conductor/conducted_animation_player.gd" id="3_seukq"]
 [ext_resource type="Script" uid="uid://dsk3wv1yb4rho" path="res://addons/conductor/conducted_timer.gd" id="4_f6j3j"]
+
+[sub_resource type="Animation" id="Animation_sderm"]
+resource_name = "pulse"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.9),
+"transitions": PackedFloat32Array(0.25, 4.43828),
+"update": 0,
+"values": [Color(1.35, 1.2, 1.2, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_reqkl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_reqkl"]
+_data = {
+&"RESET": SubResource("Animation_reqkl"),
+&"pulse": SubResource("Animation_sderm")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gndvh"]
 size = Vector2(14, 14)
@@ -98,10 +136,19 @@ script = ExtResource("4_f6j3j")
 one_shot = true
 metadata/_custom_type_script = "uid://dsk3wv1yb4rho"
 
+[node name="PulsePlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_reqkl")
+}
+script = ExtResource("3_seukq")
+round_start_beat = true
+metadata/_custom_type_script = "uid://cee2638n8ojsx"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_gndvh")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(1.05, 1.05, 1.05, 1)
 texture = ExtResource("2_gndvh")
 hframes = 4
 
