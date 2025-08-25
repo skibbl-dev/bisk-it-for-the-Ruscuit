@@ -29,7 +29,8 @@ var last_dash_beat:int
 var dash_speed:float
 
 var FRAME_RATE:float
-var acted_this_beat:bool = false
+#var acted_this_beat:bool = false
+var last_acted_beat:int = -1
 
 func _ready() -> void:
 	$PulsePlayer.play("pulse")
@@ -57,7 +58,7 @@ func _physics_process(delta: float) -> void:
 		
 		if(Input.is_action_just_pressed("parry")):
 			dashing = false
-			acted_this_beat = false
+			#acted_this_beat = false
 		else:
 			return
 	
@@ -66,8 +67,8 @@ func _physics_process(delta: float) -> void:
 	_dash()
 	_parry()
 	
-	if(Conductor.current_beat - round(Conductor.current_beat) > input_window ):
-		acted_this_beat = false
+	#if(Conductor.current_beat - round(Conductor.current_beat) > input_window ):
+		#acted_this_beat = false
 	
 	_move(input, delta)
 
@@ -85,7 +86,8 @@ func _move(input, delta):
 
 func _dash():
 	if (Input.is_action_just_pressed("dash") and (round(Conductor.current_beat) - last_dash_beat) >= (dash_time + dash_cooldown)
-	and !acted_this_beat and abs(Conductor.current_beat - round(Conductor.current_beat)) <= input_window ):
+	and last_acted_beat != round(Conductor.current_beat)
+	and abs(Conductor.current_beat - round(Conductor.current_beat)) <= input_window ):
 		#position += position.direction_to(get_global_mouse_position())*dash_distance
 		dashing = true
 		#dash_direction = position.direction_to(get_global_mouse_position())
@@ -93,13 +95,16 @@ func _dash():
 		dash_timer.start(new_dash_time)
 		dash_speed = (dash_distance/(new_dash_time*Conductor.sec_per_beat))
 		last_dash_beat = round(Conductor.current_beat)
-		acted_this_beat = true
+		last_acted_beat = round(Conductor.current_beat)
+		#acted_this_beat = true
 
 func _parry():
 	if (Input.is_action_just_pressed("parry")
-	and !acted_this_beat and abs(Conductor.current_beat - round(Conductor.current_beat)) <= input_window ):
+	and last_acted_beat != round(Conductor.current_beat)
+	and abs(Conductor.current_beat - round(Conductor.current_beat)) <= input_window ):
 		attack_animation_player.play("attack")
-		acted_this_beat = true
+		last_acted_beat = round(Conductor.current_beat)
+		#acted_this_beat = true
 
 func _rotate_weapon():
 	#weapon_pivot.rotation = Vector2.ZERO.angle_to(mouse_pos)
@@ -112,7 +117,7 @@ func _bend_sprite(direction:float,amount:float):
 
 func _on_dash_timer_timeout() -> void:
 	dashing = false
-	acted_this_beat = false
+	#acted_this_beat = false
 
 func _on_hurtbox_area_entered(_area: Area2D) -> void:
 	if(dashing):
