@@ -13,6 +13,7 @@ script = ExtResource("1_lbhrr")
 
 [node name="Player" parent="." instance=ExtResource("1_yqjtg")]
 position = Vector2(164, 189)
+collision_mask = 8
 
 [node name="ShadowShader" parent="." instance=ExtResource("2_lnu2h")]
 
@@ -62,3 +63,12 @@ shape = SubResource("RectangleShape2D_lbhrr")
 
 [node name="Enemy" parent="." instance=ExtResource("4_lbhrr")]
 position = Vector2(357, 107)
+
+[node name="Enemy2" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(218, 46)
+
+[node name="Enemy3" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(63, 58)
+
+[node name="Enemy4" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(358, 257)

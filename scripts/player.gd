@@ -10,7 +10,7 @@ extends CharacterBody2D
 @export var dash_cooldown:float = 0.6
 
 @export_category("Rhythm Variables")
-@export var input_window:float = 0.3
+@export var input_window:float = 0.325
 
 @export_category("Sprite Variables")
 @export var sprite_stretch:float = 0.4
@@ -54,7 +54,11 @@ func _physics_process(delta: float) -> void:
 		if(Input.is_action_just_pressed("dash")):
 			dashing = false
 		
-		return
+		if(Input.is_action_just_pressed("parry")):
+			dashing = false
+			acted_this_beat = false
+		else:
+			return
 	
 	sprite.modulate = Color(1,1,1)
 	
