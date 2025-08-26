@@ -10,11 +10,12 @@ extends Area2D
 @onready var FRAME_RATE:float = Engine.get_physics_ticks_per_second()
 
 func _ready() -> void:
-	if(randf()<=chance_for_deflectable):
-		modulate = deflectable_color
-		deflectable = true
-	else:
-		modulate = normal_color
+	modulate = normal_color
+	#if(randf()<=chance_for_deflectable):
+		#modulate = deflectable_color
+		#deflectable = true
+	#else:
+		#modulate = normal_color
 	for child in get_children():
 		if (child is Sprite2D):
 			child.global_rotation = -global_rotation
@@ -23,23 +24,17 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	position += (Vector2.RIGHT.rotated(rotation))*speed*delta
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(_area: Area2D) -> void:
 	#if(_area.is_in_group("player_attack")): # hit by attack
-	if(area.get_collision_layer_value(3)):
-		if(deflectable):
-			#rotation_degrees += 180
-			#rotation = global_position.angle_to(area.global_position) + deg_to_rad(180)
-			set_collision_layer_value(3, true)
-			rotation = area.get_parent().rotation
-			return
+	#if(area.get_collision_layer_value(3)):
+		#if(deflectable):
+			##rotation_degrees += 180
+			##rotation = global_position.angle_to(area.global_position) + deg_to_rad(180)
+			#set_collision_layer_value(3, true)
+			#rotation = area.get_parent().rotation
+			#return
 		
-	get_parent().check_children()
 	queue_free()
 
 #func hit():
 	#get_parent().check_children()
-	#queue_free()
-
-func kill():
-	get_parent().check_children()
-	queue_free()

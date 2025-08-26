@@ -1,15 +1,63 @@
-[gd_scene load_steps=6 format=3 uid="uid://rsgpxupbcy8a"]
+[gd_scene load_steps=11 format=3 uid="uid://rsgpxupbcy8a"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bitjw4ddfb7do" path="res://objects/Player.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://sr188lxw1nlt" path="res://objects/shadow_shader.tscn" id="2_lnu2h"]
+[ext_resource type="Script" uid="uid://cee2638n8ojsx" path="res://addons/conductor/conducted_animation_player.gd" id="2_p57ef"]
 [ext_resource type="PackedScene" uid="uid://d0bavx3hgiyhd" path="res://objects/enemies/BasicCircular.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://ba5bq2onmtl32" path="res://objects/enemies/BasicAimAtPlayer.tscn" id="5_iywne"]
+
+[sub_resource type="Animation" id="Animation_u5sy4"]
+resource_name = "pulse"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.3, 3.33333),
+"update": 0,
+"values": [Color(1.35, 1.2, 1.2, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gee14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(21.925, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0tnpc"]
+_data = {
+&"RESET": SubResource("Animation_gee14"),
+&"pulse": SubResource("Animation_u5sy4")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
 size = Vector2(480, 20)
 
 [node name="game" type="Node2D"]
+modulate = Color(21.925, 1, 1, 1)
 script = ExtResource("1_lbhrr")
+
+[node name="PulsePlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0tnpc")
+}
+script = ExtResource("2_p57ef")
+round_start_beat = true
+metadata/_custom_type_script = "uid://cee2638n8ojsx"
 
 [node name="Player" parent="." instance=ExtResource("1_yqjtg")]
 position = Vector2(164, 189)
@@ -67,8 +115,11 @@ position = Vector2(357, 107)
 [node name="Enemy2" parent="." instance=ExtResource("4_lbhrr")]
 position = Vector2(218, 46)
 
-[node name="Enemy3" parent="." instance=ExtResource("4_lbhrr")]
-position = Vector2(63, 58)
+[node name="Enemy3" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(47, 67)
 
-[node name="Enemy4" parent="." instance=ExtResource("4_lbhrr")]
-position = Vector2(358, 257)
+[node name="Enemy4" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(423, 224)
+
+[node name="Enemy5" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(45, 298)
