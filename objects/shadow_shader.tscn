@@ -19,3 +19,4 @@ shadow_color = Color(0.254902, 0.207843, 0.219608, 1)
 material = SubResource("ShaderMaterial_5hu25")
 offset_right = 480.0
 offset_bottom = 360.0
+mouse_filter = 2
