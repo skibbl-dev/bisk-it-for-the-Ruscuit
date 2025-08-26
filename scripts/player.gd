@@ -11,7 +11,7 @@ extends CharacterBody2D
 
 @export_category("Rhythm Variables")
 @export var input_window:float = 0.285
-@export var input_offset:float = 0.08
+@export var input_offset:float = 0.02
 
 @export_category("Sprite Variables")
 @export var sprite_stretch:float = 0.4
@@ -34,7 +34,7 @@ var FRAME_RATE:float
 var last_acted_beat:int = -1
 
 func _ready() -> void:
-	$PulsePlayer.play("pulse")
+	#$PulsePlayer.play("pulse")
 	FRAME_RATE = Engine.get_physics_ticks_per_second()
 	dash_timer.wait_beats = dash_time
 	#Conductor.beat.connect(_beat)

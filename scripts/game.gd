@@ -4,6 +4,7 @@ const MISTA_GREEN_ROUGH_START = preload("res://assets/music/mista green rough st
 const MISTA_GREEN_ROUGH_LOOP = preload("res://assets/music/mista green rough loop.wav")
 
 func _ready() -> void:
+	$PulsePlayer.play("pulse")
 	#Conductor.set_song(MISTA_GREEN_ROUGH_START, 81)
 	Conductor.set_song(MISTA_GREEN_ROUGH_START, 162)
 	Conductor.play()
