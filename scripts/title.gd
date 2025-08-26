@@ -15,18 +15,23 @@ const MISTA_GREEN_ROUGH_LOOP = preload("res://assets/music/mista green rough loo
 var current_state := 0
 
 func _ready() -> void:
+<<<<<<< HEAD
 	for node in states:
 		node.hide()
 	set_crack_level(0)
 	Conductor.set_song(MISTA_GREEN_ROUGH_START, 81)
+=======
+	Conductor.set_song(MISTA_GREEN_ROUGH_START, 162)
+>>>>>>> a85fa27cabda244336eabae8497931e2a21da25c
 	Conductor.play()
 	Conductor.connect("finished", _loop)
 	conducted_player.play("pulsing")
 
 func _loop():
-	Conductor.set_song(MISTA_GREEN_ROUGH_LOOP, 81)
+	Conductor.set_song(MISTA_GREEN_ROUGH_LOOP, 162)
 	Conductor.play()
 
+<<<<<<< HEAD
 func set_crack_level(level: int) -> void:
 	current_state = level
 	for i in states.size():
@@ -37,6 +42,12 @@ func _on_start_area_entered(area: Area2D) -> void:
 	if current_state < states.size() - 1:
 		set_crack_level(current_state + 1)
 	else:
+=======
+func _on_start_area_entered(_area: Area2D) -> void:
+	count += 1
+	start.scale += Vector2(-.1, -.1)
+	if count == 3:
+>>>>>>> a85fa27cabda244336eabae8497931e2a21da25c
 		get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 func shake():
