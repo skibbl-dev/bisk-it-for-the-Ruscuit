@@ -10,16 +10,16 @@ const MISTA_GREEN_ROUGH_LOOP = preload("res://assets/music/mista green rough loo
 var count := 0
 
 func _ready() -> void:
-	Conductor.set_song(MISTA_GREEN_ROUGH_START, 81)#162)
+	Conductor.set_song(MISTA_GREEN_ROUGH_START, 162)
 	Conductor.play()
 	Conductor.connect("finished", _loop)
 	conducted_player.play("pulsing") 
 
 func _loop():
-	Conductor.set_song(MISTA_GREEN_ROUGH_LOOP, 81)
+	Conductor.set_song(MISTA_GREEN_ROUGH_LOOP, 162)
 	Conductor.play()
 
-func _on_start_area_entered(area: Area2D) -> void:
+func _on_start_area_entered(_area: Area2D) -> void:
 	count += 1
 	start.scale += Vector2(-.1, -.1)
 	if count == 3:
