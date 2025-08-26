@@ -4,7 +4,8 @@ const MISTA_GREEN_ROUGH_START = preload("res://assets/music/mista green rough st
 const MISTA_GREEN_ROUGH_LOOP = preload("res://assets/music/mista green rough loop.wav")
 
 @onready var conducted_player: ConductedAnimationPlayer = $ConductedAnimationPlayer
-@onready var start: Button = $start
+
+@onready var start: Area2D = $START
 
 var count := 0
 
@@ -18,8 +19,8 @@ func _loop():
 	Conductor.set_song(MISTA_GREEN_ROUGH_LOOP, 81)
 	Conductor.play()
 
-
-func _on_area_2d_area_entered(area: Area2D) -> void:
+func _on_start_area_entered(area: Area2D) -> void:
 	count += 1
+	start.scale += Vector2(-.1, -.1)
 	if count == 3:
 		get_tree().change_scene_to_file("res://scenes/game.tscn")

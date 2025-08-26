@@ -48,9 +48,9 @@ _data = {
 size = Vector2(480, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e54dn"]
-size = Vector2(82, 30)
+size = Vector2(68, 20)
 
-[sub_resource type="BoxMesh" id="BoxMesh_dc4i4"]
+[sub_resource type="BoxMesh" id="BoxMesh_3yumr"]
 
 [node name="title_screen" type="Control"]
 layout_mode = 3
@@ -130,16 +130,26 @@ rotation = 1.57079
 shape = SubResource("RectangleShape2D_dc4i4")
 
 [node name="START" type="Area2D" parent="."]
+position = Vector2(112, 183)
 collision_layer = 0
-collision_mask = 262148
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="START"]
-position = Vector2(81, 115)
+position = Vector2(10, 0)
 shape = SubResource("RectangleShape2D_e54dn")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="START"]
-position = Vector2(81.875, 114.875)
-scale = Vector2(82.25, 30.25)
-mesh = SubResource("BoxMesh_dc4i4")
+position = Vector2(10, 3.8147e-06)
+scale = Vector2(68, 20)
+mesh = SubResource("BoxMesh_3yumr")
 
-[connection signal="area_entered" from="START" to="." method="_on_area_2d_area_entered"]
+[node name="Start_label" type="Label" parent="START"]
+offset_left = -24.0
+offset_top = -11.0
+offset_right = 44.0
+offset_bottom = 10.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_fgkus")
+text = "START"
+
+[connection signal="area_entered" from="START" to="." method="_on_start_area_entered"]
