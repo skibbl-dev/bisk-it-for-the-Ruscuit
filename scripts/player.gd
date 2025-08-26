@@ -11,6 +11,7 @@ extends CharacterBody2D
 
 @export_category("Rhythm Variables")
 @export var input_window:float = 0.285
+@export var input_offset:float = 0.08
 
 @export_category("Sprite Variables")
 @export var sprite_stretch:float = 0.4
@@ -56,7 +57,7 @@ func _physics_process(delta: float) -> void:
 		if(Input.is_action_just_pressed("dash")):
 			dashing = false
 		
-		if(Input.is_action_just_pressed("parry") and abs(Conductor.current_beat - round(Conductor.current_beat)) <= input_window ):
+		if(Input.is_action_just_pressed("parry") and abs((Conductor.current_beat+(input_offset*Conductor.beat_per_sec)) - round(Conductor.current_beat+(input_offset*Conductor.beat_per_sec))) <= input_window ):
 			dashing = false
 			#acted_this_beat = false
 		else:
@@ -87,7 +88,7 @@ func _move(input, delta):
 func _dash():
 	if (Input.is_action_just_pressed("dash") and (round(Conductor.current_beat) - last_dash_beat) >= (dash_time + dash_cooldown)
 	and last_acted_beat != round(Conductor.current_beat)
-	and abs(Conductor.current_beat - round(Conductor.current_beat)) <= input_window ):
+	and abs((Conductor.current_beat+(input_offset*Conductor.beat_per_sec)) - round(Conductor.current_beat+(input_offset*Conductor.beat_per_sec))) <= input_window ):
 		#position += position.direction_to(get_global_mouse_position())*dash_distance
 		dashing = true
 		#dash_direction = position.direction_to(get_global_mouse_position())
@@ -101,7 +102,7 @@ func _dash():
 func _parry():
 	if (Input.is_action_just_pressed("parry")
 	and last_acted_beat != round(Conductor.current_beat)
-	and abs(Conductor.current_beat - round(Conductor.current_beat)) <= input_window ):
+	and abs((Conductor.current_beat+(input_offset*Conductor.beat_per_sec)) - round(Conductor.current_beat+(input_offset*Conductor.beat_per_sec))) <= input_window ):
 		attack_animation_player.play("attack")
 		last_acted_beat = round(Conductor.current_beat)
 		#acted_this_beat = true
@@ -123,4 +124,4 @@ func _on_hurtbox_area_entered(_area: Area2D) -> void:
 	if(dashing):
 		return
 	sprite.frame+=1
-	_area.kill()
+	_area.queue_free()

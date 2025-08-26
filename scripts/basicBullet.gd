@@ -33,13 +33,7 @@ func _on_area_entered(area: Area2D) -> void:
 			rotation = area.get_parent().rotation
 			return
 		
-	get_parent().check_children()
 	queue_free()
 
 #func hit():
 	#get_parent().check_children()
-	#queue_free()
-
-func kill():
-	get_parent().check_children()
-	queue_free()
