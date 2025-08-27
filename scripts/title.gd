@@ -35,7 +35,7 @@ func set_crack_level(level: int) -> void:
 		states[i].visible = (i == level)
 	shake()
 
-func _on_start_area_entered(area: Area2D) -> void:
+func _on_start_area_entered(_area: Area2D) -> void:
 	if current_state < states.size() - 1:
 		set_crack_level(current_state + 1)
 		explosion_sound.play()
