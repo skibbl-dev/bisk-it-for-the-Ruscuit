@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6qvp45a3m4aj"
-path="res://.godot/imported/start_biscuitdam1.png-17ffe18666a2b1d4b3e2032c680400f4.ctex"
+uid="uid://jxtnx5h835fs"
+path="res://.godot/imported/start_biscuitdam3.png-fd8694a5c379d41c2a6d5b1af193ac1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/start_biscuitdam1.png"
-dest_files=["res://.godot/imported/start_biscuitdam1.png-17ffe18666a2b1d4b3e2032c680400f4.ctex"]
+source_file="res://assets/buttons/start_biscuitdam3.png"
+dest_files=["res://.godot/imported/start_biscuitdam3.png-fd8694a5c379d41c2a6d5b1af193ac1f.ctex"]
 
 [params]
 
