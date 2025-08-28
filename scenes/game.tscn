@@ -51,6 +51,7 @@ size = Vector2(480, 20)
 [node name="game" type="Node2D"]
 modulate = Color(21.925, 1, 1, 1)
 script = ExtResource("1_lbhrr")
+metadata/_edit_vertical_guides_ = [-132.0, -132.0]
 
 [node name="PulsePlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -65,7 +66,6 @@ position = Vector2(240, 180)
 collision_mask = 8
 
 [node name="ShadowShader" parent="." instance=ExtResource("2_lnu2h")]
-shadow_color = Color(0.26, 0.2002, 0.234087, 1)
 
 [node name="BorderBody" type="StaticBody2D" parent="."]
 collision_layer = 8

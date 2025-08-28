@@ -13,6 +13,8 @@ extends CharacterBody2D
 @export_category("Rhythm Variables")
 @export var input_window:float = 0.285
 @export var input_offset:float = 0.02
+@export var hit_cooldown:float = 1
+var last_hit = -2
 
 @export_category("Sprite Variables")
 @export var sprite_stretch:float = 0.4
@@ -32,7 +34,7 @@ var dashing:bool = false
 
 var FRAME_RATE:float
 #var acted_this_beat:bool = false
-var last_acted_beat:int = -1
+var last_acted_beat:int = -2
 
 func _ready() -> void:
 	#$PulsePlayer.play("pulse")
@@ -125,5 +127,8 @@ func _on_dash_timer_timeout() -> void:
 func _on_hurtbox_area_entered(_area: Area2D) -> void:
 	if(dashing):
 		return
+	if( ((Conductor.current_beat) - last_hit) < hit_cooldown ):
+		return
+	last_hit = Conductor.current_beat
 	sprite.frame+=1
 	_area.queue_free()
