@@ -8,6 +8,7 @@ const MISTA_GREEN_ROUGH_LOOP = preload("res://assets/music/mista green rough loo
 @onready var conducted_player: ConductedAnimationPlayer = $ConductedAnimationPlayer
 @onready var explosion_sound: AudioStreamPlayer = $START/explosion
 @onready var start_particles: GPUParticles2D = $START/StartParticles
+@onready var endparticles: GPUParticles2D = $START/endparticles
 
 @onready var states = [
 	$START/dam0,
@@ -46,6 +47,9 @@ func _on_start_area_entered(_area: Area2D) -> void:
 		explosion_sound.play()
 		explosion_sound.volume_db += 10
 	else:
+		endparticles.emitting = true
+		await get_tree().create_timer(.4).timeout
+		#I luv you griffin
 		#get_tree().change_scene_to_file("res://scenes/game.tscn")
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/game.tscn")
 		# I hope this should work, i was mostly just trying to fix the error/warning in the console

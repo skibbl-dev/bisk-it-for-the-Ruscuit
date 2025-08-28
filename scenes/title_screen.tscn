@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dklgv56crsspv"]
+[gd_scene load_steps=24 format=3 uid="uid://dklgv56crsspv"]
 
 [ext_resource type="Script" uid="uid://cktdpwqhrui52" path="res://scripts/title.gd" id="1_mgrm8"]
 [ext_resource type="PackedScene" uid="uid://sr188lxw1nlt" path="res://objects/shadow_shader.tscn" id="2_mgrm8"]
@@ -188,7 +188,19 @@ initial_velocity_min = 100.0
 initial_velocity_max = 100.0
 gravity = Vector3(0, 0, 0)
 scale_min = 2.0
-scale_max = 2.0
+scale_max = 3.9
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mynnq"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(54, 26, 1)
+direction = Vector3(1, 1, 0)
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 10.0
+scale_max = 127.75
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e54dn"]
 size = Vector2(104, 44)
@@ -300,6 +312,17 @@ amount = 128
 lifetime = 0.2
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_frs5l")
+
+[node name="endparticles" type="GPUParticles2D" parent="START"]
+modulate = Color(0.233925, 0.233925, 0.233925, 1)
+visibility_layer = 2
+scale = Vector2(0.909091, 0.909091)
+emitting = false
+amount = 150
+lifetime = 0.2
+one_shot = true
+collision_base_size = 18.16
+process_material = SubResource("ParticleProcessMaterial_mynnq")
 
 [node name="dam0" type="Sprite2D" parent="START"]
 texture = ExtResource("6_e54dn")
