@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://2yki4b8tm6sm"]
+
+[ext_resource type="PackedScene" uid="uid://ba5bq2onmtl32" path="res://objects/enemies/BasicAimAtPlayer.tscn" id="1_rfhwj"]
+
+[node name="wave_0_1" type="Node2D"]
+
+[node name="Enemy" parent="." instance=ExtResource("1_rfhwj")]
+position = Vector2(38, 58)
+
+[node name="Enemy2" parent="." instance=ExtResource("1_rfhwj")]
+position = Vector2(72, 32)
+
+[node name="Enemy3" parent="." instance=ExtResource("1_rfhwj")]
+position = Vector2(110, 31)

@@ -8,8 +8,11 @@ extends CharacterBody2D
 
 var last_summoned_beat:float = -1
 
+signal die
+
 func _ready() -> void:
 	anim_player.play("start")
+	die.connect(Game.INSTANCE.enemy_died)
 
 func summon_bullet(bullet:int, beat:float, angle:float=0, offset:Vector2=Vector2(0,0)): ## if angle = -999 face toward player
 	
@@ -20,7 +23,7 @@ func summon_bullet(bullet:int, beat:float, angle:float=0, offset:Vector2=Vector2
 	var new_bullet:Node2D = bullets[bullet].instantiate()
 	new_bullet.rotation_degrees = angle
 	new_bullet.global_position = global_position+offset
-	get_tree().get_root().get_child(1).add_child(new_bullet)
+	Game.INSTANCE.bullet_container.add_child(new_bullet)
 	
 	if(angle == -999):
 		new_bullet.rotation = (position+offset).angle_to_point(get_tree().get_first_node_in_group("player").position)
@@ -35,4 +38,5 @@ func change_animtion_with_chance(_name:StringName, chance:float):
 func _on_hurtbox_area_entered(_area: Area2D) -> void:
 	health -= 1
 	if(health <= 0):
+		die.emit()
 		queue_free()

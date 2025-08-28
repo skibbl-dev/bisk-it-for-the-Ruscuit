@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://rsgpxupbcy8a"]
+[gd_scene load_steps=13 format=3 uid="uid://rsgpxupbcy8a"]
 
 [ext_resource type="Script" uid="uid://drdvmo3fesqq6" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bitjw4ddfb7do" path="res://objects/Player.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://sr188lxw1nlt" path="res://objects/shadow_shader.tscn" id="2_lnu2h"]
 [ext_resource type="Script" uid="uid://cee2638n8ojsx" path="res://addons/conductor/conducted_animation_player.gd" id="2_p57ef"]
-[ext_resource type="PackedScene" uid="uid://d0bavx3hgiyhd" path="res://objects/enemies/BasicCircular.tscn" id="4_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://ba5bq2onmtl32" path="res://objects/enemies/BasicAimAtPlayer.tscn" id="5_iywne"]
+[ext_resource type="Script" uid="uid://dx4i7rpif133h" path="res://scripts/enemy_spawner.gd" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://nw5sp76j1edc" path="res://objects/waves/wave_0_0.tscn" id="6_gee14"]
+[ext_resource type="FontFile" uid="uid://foiic8me60qg" path="res://addons/Orbitron-VariableFont_wght.ttf" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://2yki4b8tm6sm" path="res://objects/waves/wave_0_1.tscn" id="7_0tnpc"]
 
 [sub_resource type="Animation" id="Animation_gee14"]
 length = 0.001
@@ -109,17 +111,17 @@ position = Vector2(490, 161)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_lbhrr")
 
-[node name="Enemy" parent="." instance=ExtResource("4_lbhrr")]
-position = Vector2(357, 107)
+[node name="BulletContainer" type="Node2D" parent="."]
 
-[node name="Enemy2" parent="." instance=ExtResource("4_lbhrr")]
-position = Vector2(218, 46)
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("5_iywne")
+enemy_waves = Array[Array]([[ExtResource("6_gee14")], [ExtResource("7_0tnpc")]])
 
-[node name="Enemy3" parent="." instance=ExtResource("5_iywne")]
-position = Vector2(47, 67)
-
-[node name="Enemy4" parent="." instance=ExtResource("5_iywne")]
-position = Vector2(423, 224)
-
-[node name="Enemy5" parent="." instance=ExtResource("5_iywne")]
-position = Vector2(45, 298)
+[node name="WaveLabel" type="Label" parent="EnemySpawner"]
+offset_left = 354.0
+offset_right = 471.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("6_p57ef")
+theme_override_font_sizes/font_size = 24
+text = "5"
+horizontal_alignment = 2
