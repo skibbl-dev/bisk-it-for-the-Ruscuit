@@ -41,10 +41,7 @@ func _on_start_area_entered(_area: Area2D) -> void:
 		explosion_sound.play()
 		explosion_sound.volume_db += 10
 	else:
-		#get_tree().change_scene_to_file("res://scenes/game.tscn")
-		get_tree().call_deferred("change_scene_to_file", "res://scenes/game.tscn")
-		# I hope this should work, i was mostly just trying to fix the error/warning in the console
-		# I think what should happen is it will wait for the scene to be "ready" before changing scenes? idrk
+		get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 func shake():
 	var tween = create_tween()
