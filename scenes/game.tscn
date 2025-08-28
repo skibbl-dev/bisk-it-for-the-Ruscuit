@@ -65,6 +65,7 @@ position = Vector2(164, 189)
 collision_mask = 8
 
 [node name="ShadowShader" parent="." instance=ExtResource("2_lnu2h")]
+shadow_color = Color(0.26, 0.2002, 0.234087, 1)
 
 [node name="BorderBody" type="StaticBody2D" parent="."]
 collision_layer = 8

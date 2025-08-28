@@ -105,6 +105,7 @@ grow_vertical = 2
 script = ExtResource("1_mgrm8")
 
 [node name="ShadowShader" parent="." instance=ExtResource("2_mgrm8")]
+shadow_color = Color(0.26, 0.2002, 0.234087, 1)
 
 [node name="title" type="Label" parent="."]
 layout_mode = 1
