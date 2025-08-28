@@ -13,22 +13,10 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Particles:emitting")
+tracks/0/path = NodePath("Area2D/CollisionPolygon2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/CollisionPolygon2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -38,29 +26,66 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_f6j3j"]
 resource_name = "attack"
 length = 0.17
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Particles:emitting")
+tracks/0/path = NodePath("Area2D/CollisionPolygon2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.17),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlashParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/CollisionPolygon2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.17),
-"transitions": PackedFloat32Array(1, 1),
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SlashParticles2:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.03),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false, true]
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlashParticles3:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.04),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SlashParticles4:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.08),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_seukq"]
@@ -76,17 +101,11 @@ colors = PackedColorArray(1, 1, 1, 1, 0.839246, 0.811073, 0.870734, 1, 0.619608,
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_f6j3j"]
 gradient = SubResource("Gradient_6vqvp")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6vqvp"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f6j3j"]
 particle_flag_disable_z = true
-emission_shape_scale = Vector3(0, 10, 1)
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-spread = 25.0
-initial_velocity_min = 68.43
-initial_velocity_max = 86.52
+radial_velocity_min = 32.43
+radial_velocity_max = 50.81
 gravity = Vector3(0, 0, 0)
-scale_min = 1.5
-scale_max = 2.0
 color_ramp = SubResource("GradientTexture1D_f6j3j")
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
@@ -112,15 +131,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_seukq")
 }
 
-[node name="Particles" type="GPUParticles2D" parent="WeaponPivot"]
-position = Vector2(18, 0)
-emitting = false
-amount = 40
-lifetime = 0.17
-one_shot = true
-explosiveness = 0.4
-process_material = SubResource("ParticleProcessMaterial_6vqvp")
-
 [node name="Weapon" type="Sprite2D" parent="WeaponPivot"]
 position = Vector2(16, 0)
 scale = Vector2(0.5, 0.5)
@@ -132,8 +142,44 @@ collision_mask = 0
 monitoring = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WeaponPivot/Area2D"]
-polygon = PackedVector2Array(12, -11, 18, 0, 12, 11, 36, 13, 41, 0, 36, -13)
+polygon = PackedVector2Array(12, -11, 18, 0, 12, 11, 30, 13, 35, 0, 30, -13)
 disabled = true
+
+[node name="SlashParticles" type="GPUParticles2D" parent="WeaponPivot"]
+position = Vector2(20, -9)
+emitting = false
+amount = 40
+lifetime = 0.13
+one_shot = true
+explosiveness = 0.4
+process_material = SubResource("ParticleProcessMaterial_f6j3j")
+
+[node name="SlashParticles2" type="GPUParticles2D" parent="WeaponPivot"]
+position = Vector2(23, -4)
+emitting = false
+amount = 40
+lifetime = 0.13
+one_shot = true
+explosiveness = 0.4
+process_material = SubResource("ParticleProcessMaterial_f6j3j")
+
+[node name="SlashParticles3" type="GPUParticles2D" parent="WeaponPivot"]
+position = Vector2(23, 4)
+emitting = false
+amount = 40
+lifetime = 0.13
+one_shot = true
+explosiveness = 0.4
+process_material = SubResource("ParticleProcessMaterial_f6j3j")
+
+[node name="SlashParticles4" type="GPUParticles2D" parent="WeaponPivot"]
+position = Vector2(20, 9)
+emitting = false
+amount = 40
+lifetime = 0.13
+one_shot = true
+explosiveness = 0.4
+process_material = SubResource("ParticleProcessMaterial_f6j3j")
 
 [node name="hurtbox" type="Area2D" parent="."]
 collision_layer = 0
