@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://njdj5kg7xqm6"]
+[gd_scene load_steps=4 format=3 uid="uid://njdj5kg7xqm6"]
 
+[ext_resource type="Script" uid="uid://b5y1dv4ckft5g" path="res://scenes/death_screen.gd" id="1_mqh5l"]
 [ext_resource type="PackedScene" uid="uid://sr188lxw1nlt" path="res://objects/shadow_shader.tscn" id="1_uyutr"]
 [ext_resource type="FontFile" uid="uid://en8i7l5eksif" path="res://assets/m6x11.ttf" id="2_dwo6e"]
 
 [node name="death_screen" type="Node2D"]
+script = ExtResource("1_mqh5l")
 
 [node name="ShadowShader" parent="." instance=ExtResource("1_uyutr")]
 
