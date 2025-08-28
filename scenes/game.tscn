@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://rsgpxupbcy8a"]
+[gd_scene load_steps=13 format=3 uid="uid://rsgpxupbcy8a"]
 
 [ext_resource type="Script" uid="uid://drdvmo3fesqq6" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bitjw4ddfb7do" path="res://objects/Player.tscn" id="1_yqjtg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dx4i7rpif133h" path="res://scripts/enemy_spawner.gd" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://nw5sp76j1edc" path="res://objects/waves/wave_0_0.tscn" id="6_gee14"]
 [ext_resource type="PackedScene" uid="uid://2yki4b8tm6sm" path="res://objects/waves/wave_0_1.tscn" id="7_0tnpc"]
+[ext_resource type="FontFile" uid="uid://dguxaujjuigfc" path="res://addons/PixelifySans-VariableFont_wght.ttf" id="8_gee14"]
 
 [sub_resource type="Animation" id="Animation_gee14"]
 length = 0.001
@@ -122,6 +123,7 @@ offset_left = 357.0
 offset_top = 11.0
 offset_right = 474.0
 offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("8_gee14")
 theme_override_font_sizes/font_size = 16
 text = "5"
 horizontal_alignment = 2
