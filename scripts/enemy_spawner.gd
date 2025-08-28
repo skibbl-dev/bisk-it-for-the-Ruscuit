@@ -10,6 +10,8 @@ func spawn_next_wave():
 	if(!enemy_waves.size()>wave):
 		return # IF TEHRE ARE NO MORE WAVES, JUST GIVE UP>
 	
+	if(current_wave != null):
+		current_wave.queue_free()
 	for child in Game.INSTANCE.bullet_container.get_children():
 		child.queue_free()
 	var new_wave = enemy_waves[wave].pick_random().instantiate()

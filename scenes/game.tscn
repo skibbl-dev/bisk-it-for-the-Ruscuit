@@ -115,7 +115,7 @@ shape = SubResource("RectangleShape2D_lbhrr")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("5_iywne")
-enemy_waves = Array[Array]([[ExtResource("6_gee14")], [ExtResource("7_0tnpc")]])
+enemy_waves = Array[Array]([[ExtResource("6_gee14")], [ExtResource("7_0tnpc")], [ExtResource("6_gee14")], [ExtResource("6_gee14")]])
 
 [node name="WaveLabel" type="Label" parent="EnemySpawner"]
 offset_left = 357.0
