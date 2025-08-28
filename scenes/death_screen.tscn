@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://njdj5kg7xqm6"]
+
+[ext_resource type="PackedScene" uid="uid://sr188lxw1nlt" path="res://objects/shadow_shader.tscn" id="1_uyutr"]
+[ext_resource type="FontFile" uid="uid://en8i7l5eksif" path="res://assets/m6x11.ttf" id="2_dwo6e"]
+
+[node name="death_screen" type="Node2D"]
+
+[node name="ShadowShader" parent="." instance=ExtResource("1_uyutr")]
+
+[node name="game_over" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 75.0
+offset_right = 480.0
+offset_bottom = 117.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_dwo6e")
+theme_override_font_sizes/font_size = 48
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="biscuit" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 125.0
+offset_right = 480.0
+offset_bottom = 167.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.873, 0.873, 0.873, 0.856)
+theme_override_fonts/font = ExtResource("2_dwo6e")
+theme_override_font_sizes/font_size = 32
+text = "No Risk, No Biscuit"
+horizontal_alignment = 1
+
+[node name="play_again" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 270.0
+offset_right = 480.0
+offset_bottom = 312.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.915277, 0.866131, 0.797841, 0.856)
+theme_override_fonts/font = ExtResource("2_dwo6e")
+theme_override_font_sizes/font_size = 16
+text = "Click Anywhere to Play Again"
+horizontal_alignment = 1

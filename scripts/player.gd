@@ -131,7 +131,7 @@ func _on_hurtbox_area_entered(_area: Area2D) -> void:
 		return
 	last_hit = Conductor.current_beat
 	if sprite.frame == 3:
-		print("death")
+		pass
 	else:
 		sprite.frame+=1
 	_area.queue_free()
