@@ -89,47 +89,6 @@ _data = {
 &"pulsing": SubResource("Animation_e54dn")
 }
 
-[sub_resource type="Animation" id="Animation_frs5l"]
-resource_name = "new_animation"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("squares/big:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.96667),
-"transitions": PackedFloat32Array(9.18958, 0.366022),
-"update": 0,
-"values": [Color(0.18359, 0.18359, 0.18359, 1), Color(0.237539, 0.237539, 0.237539, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("squares/med:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(6.9644, 0.210224, 8.28211),
-"update": 0,
-"values": [Color(0.205117, 0.205117, 0.205117, 1), Color(0.255659, 0.255659, 0.255659, 1), Color(0.205117, 0.205117, 0.205117, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("squares/little:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.5, 1, 1.5),
-"transitions": PackedFloat32Array(1, 7.21, 0.143588, 5.85633, 0.133972),
-"update": 0,
-"values": [Color(0.172833, 0.172833, 0.172833, 1), Color(0.172833, 0.172833, 0.172833, 1), Color(0.28485, 0.28485, 0.28485, 1), Color(0.172549, 0.172549, 0.172549, 1), Color(0.286275, 0.286275, 0.286275, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_mynnq"]
 length = 0.001
 tracks/0/type = "value"
@@ -169,6 +128,47 @@ tracks/2/keys = {
 "values": [Color(0.172833, 0.172833, 0.172833, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_frs5l"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("squares/big:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.96667),
+"transitions": PackedFloat32Array(9.18958, 0.366022),
+"update": 0,
+"values": [Color(0.18359, 0.18359, 0.18359, 1), Color(0.237539, 0.237539, 0.237539, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("squares/med:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(6.9644, 0.210224, 8.28211),
+"update": 0,
+"values": [Color(0.205117, 0.205117, 0.205117, 1), Color(0.255659, 0.255659, 0.255659, 1), Color(0.205117, 0.205117, 0.205117, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("squares/little:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 7.21, 0.143588, 5.85633, 0.133972, 1),
+"update": 0,
+"values": [Color(0.172833, 0.172833, 0.172833, 1), Color(0.172833, 0.172833, 0.172833, 1), Color(0.28485, 0.28485, 0.28485, 1), Color(0.172549, 0.172549, 0.172549, 1), Color(0.286275, 0.286275, 0.286275, 1), Color(0.172833, 0.172833, 0.172833, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e8tpv"]
 _data = {
 &"RESET": SubResource("Animation_mynnq"),
@@ -204,7 +204,6 @@ offset_top = 22.0
 offset_right = 116.0
 offset_bottom = 74.0
 grow_horizontal = 2
-scale = Vector2(1.1, 1.1)
 pivot_offset = Vector2(116, 26)
 theme_override_fonts/font = ExtResource("1_fgkus")
 theme_override_font_sizes/font_size = 30
@@ -238,6 +237,7 @@ offset_top = -15.0
 offset_right = 54.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(1.05, 1.05)
 theme_override_colors/font_color = Color(0.972549, 0.921569, 0.803922, 1)
 theme_override_fonts/font = ExtResource("1_fgkus")
 theme_override_font_sizes/font_size = 11
@@ -271,6 +271,7 @@ shape = SubResource("RectangleShape2D_dc4i4")
 
 [node name="START" type="Area2D" parent="."]
 position = Vector2(239, 132)
+scale = Vector2(1.1, 1.1)
 collision_layer = 0
 collision_mask = 4
 
