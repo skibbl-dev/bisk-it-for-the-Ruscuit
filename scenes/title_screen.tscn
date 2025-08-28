@@ -80,7 +80,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5, 1, 1.5),
 "transitions": PackedFloat32Array(0.3, 3.33333, 0.3, 3.33333),
 "update": 0,
-"values": [Color(1.35, 1.2, 1.2, 1), Color(1, 1, 1, 1), Color(1.35, 1.2, 1.2, 1), Color(1, 1, 1, 1)]
+"values": [Color(1.35, 1.2, 1.2, 1), Color(1.35, 1.2, 1.2, 1), Color(1.35, 1.2, 1.2, 1), Color(1.35, 1.2, 1.2, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3yumr"]
@@ -105,6 +105,7 @@ grow_vertical = 2
 script = ExtResource("1_mgrm8")
 
 [node name="ShadowShader" parent="." instance=ExtResource("2_mgrm8")]
+base_color = Color(0.12304, 0.0944747, 0.108794, 1)
 
 [node name="title" type="Label" parent="."]
 layout_mode = 1
@@ -209,6 +210,7 @@ shape = SubResource("RectangleShape2D_e54dn")
 [node name="squares" type="Node2D" parent="."]
 
 [node name="big" type="Node2D" parent="squares"]
+modulate = Color(0.18359, 0.18359, 0.18359, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="squares/big"]
 position = Vector2(39, 39)
@@ -227,6 +229,7 @@ position = Vector2(441, 321)
 texture = ExtResource("11_frs5l")
 
 [node name="med" type="Node2D" parent="squares"]
+modulate = Color(0.205117, 0.205117, 0.205117, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="squares/med"]
 position = Vector2(39, 94)
@@ -245,6 +248,7 @@ position = Vector2(441, 266)
 texture = ExtResource("12_mynnq")
 
 [node name="little" type="Node2D" parent="squares"]
+modulate = Color(0.172833, 0.172833, 0.172833, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="squares/little"]
 position = Vector2(39, 133)
