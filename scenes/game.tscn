@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bitjw4ddfb7do" path="res://objects/Player.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://sr188lxw1nlt" path="res://objects/shadow_shader.tscn" id="2_lnu2h"]
 [ext_resource type="Script" uid="uid://cee2638n8ojsx" path="res://addons/conductor/conducted_animation_player.gd" id="2_p57ef"]
-[ext_resource type="Script" path="res://scripts/enemy_spawner.gd" id="5_iywne"]
+[ext_resource type="Script" uid="uid://dx4i7rpif133h" path="res://scripts/enemy_spawner.gd" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://nw5sp76j1edc" path="res://objects/waves/wave_0_0.tscn" id="6_gee14"]
 [ext_resource type="PackedScene" uid="uid://2yki4b8tm6sm" path="res://objects/waves/wave_0_1.tscn" id="7_0tnpc"]
 [ext_resource type="FontFile" uid="uid://b22qqium0hi82" path="res://assets/fonts/PeaberryBase.ttf" id="8_gee14"]
