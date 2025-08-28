@@ -4,7 +4,7 @@ extends Node2D
 @export var enemy_waves:Array[Array]
 var wave:int = 0
 var current_wave: Node2D
-@onready var wave_label: Label = $WaveLabel
+#@onready var wave_label: Label = $WaveLabel
 
 func spawn_next_wave():
 	if(!enemy_waves.size()>wave):
@@ -19,4 +19,4 @@ func spawn_next_wave():
 	#add_child(new_wave)
 	current_wave = new_wave
 	wave += 1
-	wave_label.text = str(wave)
+	#wave_label.text = str(wave)
