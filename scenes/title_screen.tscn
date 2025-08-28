@@ -150,7 +150,7 @@ theme_override_font_sizes/font_size = 11
 text = "skibbl, dibin, eggra"
 
 [node name="Player" parent="." instance=ExtResource("5_dc4i4")]
-position = Vector2(222, 239)
+position = Vector2(240, 180)
 collision_mask = 8
 
 [node name="BorderBody" type="StaticBody2D" parent="."]
