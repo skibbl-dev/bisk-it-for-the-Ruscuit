@@ -1,8 +1,8 @@
 [gd_scene load_steps=22 format=3 uid="uid://dklgv56crsspv"]
 
-[ext_resource type="FontFile" uid="uid://foiic8me60qg" path="res://addons/Orbitron-VariableFont_wght.ttf" id="1_fgkus"]
 [ext_resource type="Script" uid="uid://cktdpwqhrui52" path="res://scripts/title.gd" id="1_mgrm8"]
 [ext_resource type="PackedScene" uid="uid://sr188lxw1nlt" path="res://objects/shadow_shader.tscn" id="2_mgrm8"]
+[ext_resource type="FontFile" uid="uid://dguxaujjuigfc" path="res://addons/PixelifySans-VariableFont_wght.ttf" id="3_frs5l"]
 [ext_resource type="Script" uid="uid://cee2638n8ojsx" path="res://addons/conductor/conducted_animation_player.gd" id="4_dc4i4"]
 [ext_resource type="PackedScene" uid="uid://bitjw4ddfb7do" path="res://objects/Player.tscn" id="5_dc4i4"]
 [ext_resource type="Texture2D" uid="uid://bx61tj68dxjhl" path="res://assets/buttons/start_biscuit.png" id="6_e54dn"]
@@ -196,17 +196,20 @@ shadow_color = Color(0.176471, 0.133333, 0.160784, 0.796078)
 
 [node name="title" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -116.0
-offset_top = 22.0
-offset_right = 116.0
-offset_bottom = 74.0
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -155.0
+offset_right = 130.0
+offset_bottom = -108.0
 grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(116, 26)
-theme_override_fonts/font = ExtResource("1_fgkus")
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("3_frs5l")
+theme_override_font_sizes/font_size = 39
 text = "Tempo Clash"
 horizontal_alignment = 1
 
@@ -239,8 +242,8 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.05, 1.05)
 theme_override_colors/font_color = Color(0.972549, 0.921569, 0.803922, 1)
-theme_override_fonts/font = ExtResource("1_fgkus")
-theme_override_font_sizes/font_size = 11
+theme_override_fonts/font = ExtResource("3_frs5l")
+theme_override_font_sizes/font_size = 12
 text = "skibbl, dibin, eggra"
 
 [node name="Player" parent="." instance=ExtResource("5_dc4i4")]
