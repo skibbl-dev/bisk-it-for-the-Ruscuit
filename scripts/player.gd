@@ -5,9 +5,10 @@ extends CharacterBody2D
 @export var max_speed:float = 126
 @export var decel:float = 0.83
 
-@export var dash_time:float = 1.9
-@export var dash_distance:float = 180
-@export var dash_cooldown:float = 0.6
+@export var dash_time:float = 1.7
+#@export var dash_distance:float = 180
+@export var dash_speed:float = 255
+#@export var dash_cooldown:float = 0.6
 
 @export_category("Rhythm Variables")
 @export var input_window:float = 0.285
@@ -25,9 +26,9 @@ extends CharacterBody2D
 
 @onready var dash_timer: ConductedTimer = $DashTimer
 var dashing:bool = false
-var last_dash_beat:int
+#var last_dash_beat:int
 #var dash_direction:Vector2
-var dash_speed:float
+#var dash_speed:float
 
 var FRAME_RATE:float
 #var acted_this_beat:bool = false
@@ -86,7 +87,7 @@ func _move(input, delta):
 	move_and_slide()
 
 func _dash():
-	if (Input.is_action_just_pressed("dash") and (round(Conductor.current_beat) - last_dash_beat) >= (dash_time + dash_cooldown)
+	if (Input.is_action_just_pressed("dash") # and (round(Conductor.current_beat) - last_dash_beat) >= (dash_time + dash_cooldown)
 	and last_acted_beat != round(Conductor.current_beat)
 	and abs((Conductor.current_beat+(input_offset*Conductor.beat_per_sec)) - round(Conductor.current_beat+(input_offset*Conductor.beat_per_sec))) <= input_window ):
 		#position += position.direction_to(get_global_mouse_position())*dash_distance
@@ -94,8 +95,9 @@ func _dash():
 		#dash_direction = position.direction_to(get_global_mouse_position())
 		var new_dash_time = dash_time - (Conductor.current_beat - round(Conductor.current_beat))
 		dash_timer.start(new_dash_time)
-		dash_speed = (dash_distance/(new_dash_time*Conductor.sec_per_beat))
-		last_dash_beat = round(Conductor.current_beat)
+		#dash_speed = (dash_distance/(new_dash_time*Conductor.sec_per_beat))
+		#print( (dash_distance/(dash_time*Conductor.sec_per_beat)) )
+		#last_dash_beat = round(Conductor.current_beat)
 		last_acted_beat = round(Conductor.current_beat)
 		#acted_this_beat = true
 
