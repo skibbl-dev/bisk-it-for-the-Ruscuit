@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cktdpwqhrui52" path="res://scripts/title.gd" id="1_mgrm8"]
 [ext_resource type="PackedScene" uid="uid://sr188lxw1nlt" path="res://objects/shadow_shader.tscn" id="2_mgrm8"]
-[ext_resource type="FontFile" uid="uid://dguxaujjuigfc" path="res://addons/PixelifySans-VariableFont_wght.ttf" id="3_frs5l"]
+[ext_resource type="FontFile" uid="uid://en8i7l5eksif" path="res://assets/m6x11.ttf" id="3_mynnq"]
 [ext_resource type="Script" uid="uid://cee2638n8ojsx" path="res://addons/conductor/conducted_animation_player.gd" id="4_dc4i4"]
 [ext_resource type="PackedScene" uid="uid://bitjw4ddfb7do" path="res://objects/Player.tscn" id="5_dc4i4"]
 [ext_resource type="Texture2D" uid="uid://bx61tj68dxjhl" path="res://assets/buttons/start_biscuit.png" id="6_e54dn"]
@@ -207,8 +207,8 @@ offset_bottom = -108.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(116, 26)
-theme_override_fonts/font = ExtResource("3_frs5l")
-theme_override_font_sizes/font_size = 21
+theme_override_fonts/font = ExtResource("3_mynnq")
+theme_override_font_sizes/font_size = 32
 text = "Tempo Clash"
 horizontal_alignment = 1
 
@@ -234,15 +234,16 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -54.0
-offset_top = -15.0
-offset_right = 54.0
+offset_left = -56.0
+offset_top = -17.0
+offset_right = 56.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.05, 1.05)
 theme_override_colors/font_color = Color(0.972549, 0.921569, 0.803922, 1)
-theme_override_fonts/font = ExtResource("3_frs5l")
-theme_override_font_sizes/font_size = 12
+theme_override_fonts/font = ExtResource("3_mynnq")
+theme_override_font_sizes/font_size = 16
 text = "skibbl, dibin, eggra"
 
 [node name="Player" parent="." instance=ExtResource("5_dc4i4")]
