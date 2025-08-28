@@ -3,6 +3,8 @@ extends Control
 const MISTA_GREEN_ROUGH_START = preload("res://assets/music/mista green rough start.wav")
 const MISTA_GREEN_ROUGH_LOOP = preload("res://assets/music/mista green rough loop.wav")
 
+@onready var pulse_player: ConductedAnimationPlayer = $PulsePlayer
+
 @onready var conducted_player: ConductedAnimationPlayer = $ConductedAnimationPlayer
 @onready var explosion_sound: AudioStreamPlayer = $START/explosion
 
@@ -23,6 +25,7 @@ func _ready() -> void:
 	Conductor.play()
 	Conductor.connect("finished", _loop)
 	conducted_player.play("pulsing")
+	pulse_player.play("pulse")
 	explosion_sound.volume_db = -40
 
 func _loop():

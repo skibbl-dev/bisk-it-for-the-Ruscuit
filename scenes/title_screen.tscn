@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dklgv56crsspv"]
+[gd_scene load_steps=22 format=3 uid="uid://dklgv56crsspv"]
 
 [ext_resource type="FontFile" uid="uid://foiic8me60qg" path="res://addons/Orbitron-VariableFont_wght.ttf" id="1_fgkus"]
 [ext_resource type="Script" uid="uid://cktdpwqhrui52" path="res://scripts/title.gd" id="1_mgrm8"]
@@ -89,6 +89,92 @@ _data = {
 &"pulsing": SubResource("Animation_e54dn")
 }
 
+[sub_resource type="Animation" id="Animation_frs5l"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("squares/big:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.96667),
+"transitions": PackedFloat32Array(9.18958, 0.366022),
+"update": 0,
+"values": [Color(0.18359, 0.18359, 0.18359, 1), Color(0.237539, 0.237539, 0.237539, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("squares/med:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(6.9644, 0.210224, 8.28211),
+"update": 0,
+"values": [Color(0.205117, 0.205117, 0.205117, 1), Color(0.255659, 0.255659, 0.255659, 1), Color(0.205117, 0.205117, 0.205117, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("squares/little:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 7.21, 0.143588, 5.85633, 0.133972),
+"update": 0,
+"values": [Color(0.172833, 0.172833, 0.172833, 1), Color(0.172833, 0.172833, 0.172833, 1), Color(0.28485, 0.28485, 0.28485, 1), Color(0.172549, 0.172549, 0.172549, 1), Color(0.286275, 0.286275, 0.286275, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mynnq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("squares/big:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.18359, 0.18359, 0.18359, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("squares/med:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.205117, 0.205117, 0.205117, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("squares/little:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.172833, 0.172833, 0.172833, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e8tpv"]
+_data = {
+&"RESET": SubResource("Animation_mynnq"),
+&"pulse": SubResource("Animation_frs5l")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dc4i4"]
 size = Vector2(480, 20)
 
@@ -105,7 +191,8 @@ grow_vertical = 2
 script = ExtResource("1_mgrm8")
 
 [node name="ShadowShader" parent="." instance=ExtResource("2_mgrm8")]
-shadow_color = Color(0.26, 0.2002, 0.234087, 1)
+base_color = Color(0.20754, 0.161306, 0.184408, 1)
+shadow_color = Color(0.176471, 0.133333, 0.160784, 0.796078)
 
 [node name="title" type="Label" parent="."]
 layout_mode = 1
@@ -130,6 +217,13 @@ libraries = {
 }
 script = ExtResource("4_dc4i4")
 round_start_beat = true
+metadata/_custom_type_script = "uid://cee2638n8ojsx"
+
+[node name="PulsePlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_e8tpv")
+}
+script = ExtResource("4_dc4i4")
 metadata/_custom_type_script = "uid://cee2638n8ojsx"
 
 [node name="names" type="Label" parent="."]
@@ -211,8 +305,10 @@ shape = SubResource("RectangleShape2D_e54dn")
 
 [node name="big" type="Node2D" parent="squares"]
 modulate = Color(0.18359, 0.18359, 0.18359, 1)
+position = Vector2(0.615254, 0.615254)
 
 [node name="Sprite2D" type="Sprite2D" parent="squares/big"]
+modulate = Color(0.877616, 0.877616, 0.877616, 1)
 position = Vector2(39, 39)
 texture = ExtResource("11_frs5l")
 
@@ -230,6 +326,7 @@ texture = ExtResource("11_frs5l")
 
 [node name="med" type="Node2D" parent="squares"]
 modulate = Color(0.205117, 0.205117, 0.205117, 1)
+position = Vector2(0.79, 0.79)
 
 [node name="Sprite2D" type="Sprite2D" parent="squares/med"]
 position = Vector2(39, 94)
@@ -249,6 +346,7 @@ texture = ExtResource("12_mynnq")
 
 [node name="little" type="Node2D" parent="squares"]
 modulate = Color(0.172833, 0.172833, 0.172833, 1)
+position = Vector2(0.526667, 0.526667)
 
 [node name="Sprite2D" type="Sprite2D" parent="squares/little"]
 position = Vector2(39, 133)
