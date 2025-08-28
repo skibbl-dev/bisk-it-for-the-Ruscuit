@@ -191,10 +191,9 @@ grow_vertical = 2
 script = ExtResource("1_mgrm8")
 
 [node name="ShadowShader" parent="." instance=ExtResource("2_mgrm8")]
-base_color = Color(0.20754, 0.161306, 0.184408, 1)
-shadow_color = Color(0.176471, 0.133333, 0.160784, 0.796078)
 
 [node name="title" type="Label" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -209,7 +208,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(116, 26)
 theme_override_fonts/font = ExtResource("3_frs5l")
-theme_override_font_sizes/font_size = 39
+theme_override_font_sizes/font_size = 21
 text = "Tempo Clash"
 horizontal_alignment = 1
 
