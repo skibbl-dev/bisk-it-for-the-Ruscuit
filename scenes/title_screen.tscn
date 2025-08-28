@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dklgv56crsspv"]
+[gd_scene load_steps=19 format=3 uid="uid://dklgv56crsspv"]
 
 [ext_resource type="FontFile" uid="uid://foiic8me60qg" path="res://addons/Orbitron-VariableFont_wght.ttf" id="1_fgkus"]
 [ext_resource type="Script" uid="uid://cktdpwqhrui52" path="res://scripts/title.gd" id="1_mgrm8"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://d0dug76gg41da" path="res://assets/buttons/start_biscuitdam2.png" id="8_tklts"]
 [ext_resource type="Texture2D" uid="uid://jxtnx5h835fs" path="res://assets/buttons/start_biscuitdam3.png" id="9_u26n3"]
 [ext_resource type="AudioStream" uid="uid://crlr3bsdea2th" path="res://assets/pixel-explosion-319166.mp3" id="10_tklts"]
+[ext_resource type="Texture2D" uid="uid://cbodqa6kal4jb" path="res://assets/cube1.png" id="11_frs5l"]
+[ext_resource type="Texture2D" uid="uid://cwcyerepvgq7v" path="res://assets/cube2.png" id="12_mynnq"]
+[ext_resource type="Texture2D" uid="uid://b1r3s4nag0l3x" path="res://assets/cube3.png" id="13_e8tpv"]
 
 [sub_resource type="Animation" id="Animation_mgrm8"]
 length = 0.001
@@ -202,5 +205,77 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="button_collision"]
 position = Vector2(239, 132)
 shape = SubResource("RectangleShape2D_e54dn")
+
+[node name="squares" type="Node2D" parent="."]
+
+[node name="big" type="Node2D" parent="squares"]
+
+[node name="Sprite2D" type="Sprite2D" parent="squares/big"]
+position = Vector2(39, 39)
+texture = ExtResource("11_frs5l")
+
+[node name="Sprite2D2" type="Sprite2D" parent="squares/big"]
+position = Vector2(39, 321)
+texture = ExtResource("11_frs5l")
+
+[node name="Sprite2D3" type="Sprite2D" parent="squares/big"]
+position = Vector2(441, 39)
+texture = ExtResource("11_frs5l")
+
+[node name="Sprite2D4" type="Sprite2D" parent="squares/big"]
+position = Vector2(441, 321)
+texture = ExtResource("11_frs5l")
+
+[node name="med" type="Node2D" parent="squares"]
+
+[node name="Sprite2D" type="Sprite2D" parent="squares/med"]
+position = Vector2(39, 94)
+texture = ExtResource("12_mynnq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="squares/med"]
+position = Vector2(39, 266)
+texture = ExtResource("12_mynnq")
+
+[node name="Sprite2D3" type="Sprite2D" parent="squares/med"]
+position = Vector2(441, 94)
+texture = ExtResource("12_mynnq")
+
+[node name="Sprite2D4" type="Sprite2D" parent="squares/med"]
+position = Vector2(441, 266)
+texture = ExtResource("12_mynnq")
+
+[node name="little" type="Node2D" parent="squares"]
+
+[node name="Sprite2D" type="Sprite2D" parent="squares/little"]
+position = Vector2(39, 133)
+texture = ExtResource("13_e8tpv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="squares/little"]
+position = Vector2(39, 164)
+texture = ExtResource("13_e8tpv")
+
+[node name="Sprite2D3" type="Sprite2D" parent="squares/little"]
+position = Vector2(39, 195)
+texture = ExtResource("13_e8tpv")
+
+[node name="Sprite2D4" type="Sprite2D" parent="squares/little"]
+position = Vector2(39, 226)
+texture = ExtResource("13_e8tpv")
+
+[node name="Sprite2D5" type="Sprite2D" parent="squares/little"]
+position = Vector2(441, 133)
+texture = ExtResource("13_e8tpv")
+
+[node name="Sprite2D6" type="Sprite2D" parent="squares/little"]
+position = Vector2(441, 164)
+texture = ExtResource("13_e8tpv")
+
+[node name="Sprite2D7" type="Sprite2D" parent="squares/little"]
+position = Vector2(441, 195)
+texture = ExtResource("13_e8tpv")
+
+[node name="Sprite2D8" type="Sprite2D" parent="squares/little"]
+position = Vector2(441, 226)
+texture = ExtResource("13_e8tpv")
 
 [connection signal="area_entered" from="START" to="." method="_on_start_area_entered"]
