@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dx4i7rpif133h" path="res://scripts/enemy_spawner.gd" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://nw5sp76j1edc" path="res://objects/waves/wave_0_0.tscn" id="6_gee14"]
 [ext_resource type="PackedScene" uid="uid://2yki4b8tm6sm" path="res://objects/waves/wave_0_1.tscn" id="7_0tnpc"]
-[ext_resource type="FontFile" uid="uid://dguxaujjuigfc" path="res://addons/PixelifySans-VariableFont_wght.ttf" id="8_gee14"]
+[ext_resource type="FontFile" uid="uid://en8i7l5eksif" path="res://assets/m6x11.ttf" id="8_gee14"]
 
 [sub_resource type="Animation" id="Animation_gee14"]
 length = 0.001
