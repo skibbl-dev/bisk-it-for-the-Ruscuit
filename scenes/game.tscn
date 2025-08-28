@@ -6,8 +6,8 @@
 [ext_resource type="Script" uid="uid://cee2638n8ojsx" path="res://addons/conductor/conducted_animation_player.gd" id="2_p57ef"]
 [ext_resource type="Script" path="res://scripts/enemy_spawner.gd" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://nw5sp76j1edc" path="res://objects/waves/wave_0_0.tscn" id="6_gee14"]
-[ext_resource type="FontFile" uid="uid://foiic8me60qg" path="res://addons/Orbitron-VariableFont_wght.ttf" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://2yki4b8tm6sm" path="res://objects/waves/wave_0_1.tscn" id="7_0tnpc"]
+[ext_resource type="FontFile" uid="uid://b22qqium0hi82" path="res://assets/fonts/PeaberryBase.ttf" id="8_gee14"]
 
 [sub_resource type="Animation" id="Animation_gee14"]
 length = 0.001
@@ -118,10 +118,11 @@ script = ExtResource("5_iywne")
 enemy_waves = Array[Array]([[ExtResource("6_gee14")], [ExtResource("7_0tnpc")]])
 
 [node name="WaveLabel" type="Label" parent="EnemySpawner"]
-offset_left = 354.0
-offset_right = 471.0
-offset_bottom = 31.0
-theme_override_fonts/font = ExtResource("6_p57ef")
-theme_override_font_sizes/font_size = 24
+offset_left = 357.0
+offset_top = 11.0
+offset_right = 474.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("8_gee14")
+theme_override_font_sizes/font_size = 16
 text = "5"
 horizontal_alignment = 2
