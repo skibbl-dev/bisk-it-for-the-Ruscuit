@@ -6,6 +6,7 @@ const MISTA_GREEN_ROUGH_LOOP = preload("res://assets/music/mista green rough loo
 
 @onready var bullet_container: Node2D = $BulletContainer
 @onready var enemy_spawner: Node2D = $EnemySpawner
+@onready var wave_transition: AnimationPlayer = $WaveTransition
 
 static var INSTANCE
 
@@ -27,4 +28,5 @@ func enemy_died():
 	if(enemy_spawner.current_wave.get_children().size() <= 1):
 		# instead, we should do an animation
 		# then when animation finished spawn spawn_next_wave
-		enemy_spawner.spawn_next_wave()
+		#enemy_spawner.spawn_next_wave()
+		wave_transition.play("WaveTransitions")
