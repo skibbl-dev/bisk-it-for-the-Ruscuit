@@ -131,7 +131,8 @@ func _on_hurtbox_area_entered(_area: Area2D) -> void:
 		return
 	last_hit = Conductor.current_beat
 	if sprite.frame == 3:
-		get_tree().change_scene_to_file("res://scenes/death_screen.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/death_screen.tscn")
+		#get_tree().change_scene_to_file("res://scenes/death_screen.tscn")
 	else:
 		sprite.frame+=1
 	_area.queue_free()
