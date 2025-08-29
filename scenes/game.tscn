@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://rsgpxupbcy8a"]
+[gd_scene load_steps=18 format=3 uid="uid://rsgpxupbcy8a"]
 
 [ext_resource type="Script" uid="uid://drdvmo3fesqq6" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bitjw4ddfb7do" path="res://objects/Player.tscn" id="1_yqjtg"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://nw5sp76j1edc" path="res://objects/waves/wave_0_0.tscn" id="6_gee14"]
 [ext_resource type="PackedScene" uid="uid://2yki4b8tm6sm" path="res://objects/waves/wave_0_1.tscn" id="7_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://cql8hos43jppj" path="res://assets/WaveCompleted.png" id="8_gee14"]
+[ext_resource type="Texture2D" uid="uid://dcfcddemtxxmy" path="res://assets/RunIndicatorbackground.png" id="9_0tnpc"]
+[ext_resource type="Texture2D" uid="uid://bj5k2suu72ekk" path="res://assets/WaveTransition/CentipedeBoss.png" id="10_vtaks"]
 
 [sub_resource type="Animation" id="Animation_gee14"]
 length = 0.001
@@ -54,7 +56,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("WaveTransition/TextureRect:position")
+tracks/0/path = NodePath("WaveTransition/WaveChanged:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -71,7 +73,7 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("WaveTransition/TextureRect:position")
+tracks/0/path = NodePath("WaveTransition/WaveChanged:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -175,7 +177,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_vtaks")
 }
 
-[node name="TextureRect" type="TextureRect" parent="WaveTransition"]
+[node name="WaveChanged" type="TextureRect" parent="WaveTransition"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -188,3 +190,66 @@ offset_bottom = 14.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_gee14")
+
+[node name="RunIndicators" type="TextureRect" parent="WaveTransition/WaveChanged"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = 16.0
+offset_right = 81.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(81, 8)
+texture = ExtResource("9_0tnpc")
+
+[node name="HBox" type="HBoxContainer" parent="WaveTransition/WaveChanged/RunIndicators"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 165.0
+offset_bottom = 16.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+layout_mode = 2
+texture = ExtResource("10_vtaks")
+
+[node name="TextureRect2" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+layout_mode = 2
+texture = ExtResource("10_vtaks")
+
+[node name="TextureRect3" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+layout_mode = 2
+texture = ExtResource("10_vtaks")
+
+[node name="TextureRect4" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+layout_mode = 2
+texture = ExtResource("10_vtaks")
+
+[node name="TextureRect5" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+layout_mode = 2
+texture = ExtResource("10_vtaks")
+
+[node name="TextureRect6" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+layout_mode = 2
+texture = ExtResource("10_vtaks")
+
+[node name="TextureRect7" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+layout_mode = 2
+texture = ExtResource("10_vtaks")
+
+[node name="TextureRect8" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+layout_mode = 2
+texture = ExtResource("10_vtaks")
+
+[node name="TextureRect9" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+layout_mode = 2
+texture = ExtResource("10_vtaks")
+
+[node name="TextureRect10" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+layout_mode = 2
+texture = ExtResource("10_vtaks")
