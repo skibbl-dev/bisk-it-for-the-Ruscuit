@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://rsgpxupbcy8a"]
+[gd_scene load_steps=19 format=3 uid="uid://rsgpxupbcy8a"]
 
 [ext_resource type="Script" uid="uid://drdvmo3fesqq6" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bitjw4ddfb7do" path="res://objects/Player.tscn" id="1_yqjtg"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cql8hos43jppj" path="res://assets/WaveCompleted.png" id="8_gee14"]
 [ext_resource type="Texture2D" uid="uid://dcfcddemtxxmy" path="res://assets/RunIndicatorbackground.png" id="9_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://bj5k2suu72ekk" path="res://assets/WaveTransition/CentipedeBoss.png" id="10_vtaks"]
+[ext_resource type="Texture2D" uid="uid://jnnl6vkj7gdv" path="res://assets/WaveTransition/CurrentWaveIndicator.png" id="11_kvpfn"]
 
 [sub_resource type="Animation" id="Animation_gee14"]
 length = 0.001
@@ -65,6 +66,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(480, 165.5)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WaveTransition/RunIndicators:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_0tnpc"]
 resource_name = "WaveTransitions"
@@ -89,12 +102,24 @@ tracks/1/path = NodePath("EnemySpawner")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(3),
+"times": PackedFloat32Array(2.7),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"spawn_next_wave"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WaveTransition/RunIndicators:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9, 1.2),
+"transitions": PackedFloat32Array(0.840895, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vtaks"]
@@ -191,8 +216,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_gee14")
 
-[node name="RunIndicators" type="TextureRect" parent="WaveTransition/WaveChanged"]
-layout_mode = 1
+[node name="RunIndicators" type="TextureRect" parent="WaveTransition"]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -207,49 +232,56 @@ grow_vertical = 2
 pivot_offset = Vector2(81, 8)
 texture = ExtResource("9_0tnpc")
 
-[node name="HBox" type="HBoxContainer" parent="WaveTransition/WaveChanged/RunIndicators"]
+[node name="HBox" type="HBoxContainer" parent="WaveTransition/RunIndicators"]
 layout_mode = 0
 offset_left = 1.0
 offset_right = 165.0
 offset_bottom = 16.0
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+[node name="TextureRect" type="TextureRect" parent="WaveTransition/RunIndicators/HBox"]
 layout_mode = 2
 texture = ExtResource("10_vtaks")
 
-[node name="TextureRect2" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+[node name="TextureRect2" type="TextureRect" parent="WaveTransition/RunIndicators/HBox"]
 layout_mode = 2
 texture = ExtResource("10_vtaks")
 
-[node name="TextureRect3" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+[node name="TextureRect3" type="TextureRect" parent="WaveTransition/RunIndicators/HBox"]
 layout_mode = 2
 texture = ExtResource("10_vtaks")
 
-[node name="TextureRect4" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+[node name="TextureRect4" type="TextureRect" parent="WaveTransition/RunIndicators/HBox"]
 layout_mode = 2
 texture = ExtResource("10_vtaks")
 
-[node name="TextureRect5" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+[node name="TextureRect5" type="TextureRect" parent="WaveTransition/RunIndicators/HBox"]
 layout_mode = 2
 texture = ExtResource("10_vtaks")
 
-[node name="TextureRect6" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+[node name="TextureRect6" type="TextureRect" parent="WaveTransition/RunIndicators/HBox"]
 layout_mode = 2
 texture = ExtResource("10_vtaks")
 
-[node name="TextureRect7" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+[node name="TextureRect7" type="TextureRect" parent="WaveTransition/RunIndicators/HBox"]
 layout_mode = 2
 texture = ExtResource("10_vtaks")
 
-[node name="TextureRect8" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+[node name="TextureRect8" type="TextureRect" parent="WaveTransition/RunIndicators/HBox"]
 layout_mode = 2
 texture = ExtResource("10_vtaks")
 
-[node name="TextureRect9" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+[node name="TextureRect9" type="TextureRect" parent="WaveTransition/RunIndicators/HBox"]
 layout_mode = 2
 texture = ExtResource("10_vtaks")
 
-[node name="TextureRect10" type="TextureRect" parent="WaveTransition/WaveChanged/RunIndicators/HBox"]
+[node name="TextureRect10" type="TextureRect" parent="WaveTransition/RunIndicators/HBox"]
 layout_mode = 2
 texture = ExtResource("10_vtaks")
+
+[node name="TextureRect" type="TextureRect" parent="WaveTransition"]
+offset_left = 162.0
+offset_top = 213.0
+offset_right = 174.0
+offset_bottom = 221.0
+texture = ExtResource("11_kvpfn")
