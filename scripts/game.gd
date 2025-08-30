@@ -1,8 +1,15 @@
 class_name Game
 extends Node2D
 
+# 162
 const MISTA_GREEN_ROUGH_START = preload("res://assets/music/mista green rough start.wav")
 const MISTA_GREEN_ROUGH_LOOP = preload("res://assets/music/mista green rough loop.wav")
+
+#95 or 190
+const RUMBLE_AT_THE_GATES = preload("res://assets/music/Rumble at the Gates.ogg")
+
+
+const ABANDONED_FREQUENCY_F_01_17171K_HZ_LOOP = preload("res://assets/music/abandoned frequency F01 17171kHz-LOOP.wav")
 
 @onready var bullet_container: Node2D = $BulletContainer
 @onready var enemy_spawner: Node2D = $EnemySpawner
@@ -17,15 +24,14 @@ static var INSTANCE
 func _ready() -> void:
 	Game.INSTANCE = self
 	$PulsePlayer.play("pulse")
-	#Conductor.set_song(MISTA_GREEN_ROUGH_START, 81)
 	#Conductor.set_song(MISTA_GREEN_ROUGH_START, 162)
 	#Conductor.play()
 	Conductor.connect("finished", _loop)
 	enemy_spawner.spawn_next_wave()
 
 func _loop():
-	#Conductor.set_song(MISTA_GREEN_ROUGH_LOOP, 81)
-	Conductor.set_song(MISTA_GREEN_ROUGH_LOOP, 162)
+	#Conductor.set_song(MISTA_GREEN_ROUGH_LOOP, 162)
+	Conductor.set_song(RUMBLE_AT_THE_GATES, 190)
 	Conductor.play()
 
 func enemy_died():

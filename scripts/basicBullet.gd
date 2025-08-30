@@ -24,7 +24,7 @@ func _ready() -> void:
 			
 
 func _physics_process(delta: float) -> void:
-	position += (Vector2.RIGHT.rotated(rotation))*speed*delta
+	position += (Vector2.RIGHT.rotated(rotation))*speed*delta*Conductor.beat_per_sec
 	if(life_time == -1):
 		return
 	if (Conductor.current_beat - start_beat) > life_time:

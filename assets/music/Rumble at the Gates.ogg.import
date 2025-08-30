@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://vjc3o6q8omfm"
+path="res://.godot/imported/Rumble at the Gates.ogg-1a02b66b36590db8769441edf28ac3be.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Rumble at the Gates.ogg"
+dest_files=["res://.godot/imported/Rumble at the Gates.ogg-1a02b66b36590db8769441edf28ac3be.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -7,7 +7,8 @@ extends CharacterBody2D
 
 @export var dash_time:float = 1.7
 #@export var dash_distance:float = 180
-@export var dash_speed:float = 255
+@export var dash_speed:float = 110 #255
+var current_dash_speed:float
 #@export var dash_cooldown:float = 0.6
 
 @export_category("Rhythm Variables")
@@ -57,7 +58,8 @@ func _physics_process(delta: float) -> void:
 	if(dashing):
 		#position += dash_direction*dash_speed*FRAME_RATE*delta
 		sprite.modulate = Color(1.3,1.3,1.3)
-		velocity = input*dash_speed
+		#velocity = input*dash_speed
+		velocity = input*current_dash_speed
 		move_and_slide()
 		_bend_sprite(input.angle(),1.8)
 		
@@ -101,6 +103,7 @@ func _dash():
 		#dash_direction = position.direction_to(get_global_mouse_position())
 		var new_dash_time = dash_time - (Conductor.current_beat - round(Conductor.current_beat))
 		dash_timer.start(new_dash_time)
+		current_dash_speed = dash_speed * Conductor.beat_per_sec
 		#dash_speed = (dash_distance/(new_dash_time*Conductor.sec_per_beat))
 		#print( (dash_distance/(dash_time*Conductor.sec_per_beat)) )
 		#last_dash_beat = round(Conductor.current_beat)

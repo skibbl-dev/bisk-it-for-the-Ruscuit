@@ -101,7 +101,7 @@ tracks/0/keys = {
 "args": [0, 1.0, 90.0, Vector2(0, 0)],
 "method": &"summon_bullet"
 }, {
-"args": [1, 3.0, 0.0, Vector2(0, 0)],
+"args": [1, 3.0, 45.0, Vector2(0, 0)],
 "method": &"summon_bullet"
 }, {
 "args": [0, 0.0, -90.0, Vector2(0, 0)],
