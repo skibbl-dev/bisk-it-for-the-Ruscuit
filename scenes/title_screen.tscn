@@ -232,11 +232,13 @@ offset_right = 130.0
 offset_bottom = -108.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(116, 26)
+scale = Vector2(1.1, 1.1)
+pivot_offset = Vector2(130, 26)
 theme_override_fonts/font = ExtResource("3_mynnq")
 theme_override_font_sizes/font_size = 32
 text = "Tempo Clash"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ConductedAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -263,12 +265,12 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -56.0
-offset_top = -17.0
+offset_top = -18.0
 offset_right = 56.0
-offset_bottom = -2.0
+offset_bottom = -3.00003
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(1.05, 1.05)
+pivot_offset = Vector2(56, 7.5)
 theme_override_colors/font_color = Color(0.972549, 0.921569, 0.803922, 1)
 theme_override_fonts/font = ExtResource("3_mynnq")
 theme_override_font_sizes/font_size = 16
@@ -304,7 +306,6 @@ shape = SubResource("RectangleShape2D_dc4i4")
 [node name="START" type="Area2D" parent="."]
 modulate = Color(0.497474, 0.497474, 0.497474, 1)
 position = Vector2(239, 132)
-scale = Vector2(1.1, 1.1)
 collision_layer = 0
 collision_mask = 4
 
