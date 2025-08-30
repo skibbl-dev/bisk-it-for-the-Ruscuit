@@ -5,11 +5,11 @@ extends Node2D
 const MISTA_GREEN_ROUGH_START = preload("res://assets/music/mista green rough start.wav")
 const MISTA_GREEN_ROUGH_LOOP = preload("res://assets/music/mista green rough loop.wav")
 
-#95 or 190
+# 95 or 190
 const RUMBLE_AT_THE_GATES = preload("res://assets/music/Rumble at the Gates.ogg")
 
-
-const ABANDONED_FREQUENCY_F_01_17171K_HZ_LOOP = preload("res://assets/music/abandoned frequency F01 17171kHz-LOOP.wav")
+# 140 bpm
+const ABANDONED_FREQUENCY = preload("res://assets/music/abandoned frequency F01 17171kHz-LOOP.wav")
 
 @onready var bullet_container: Node2D = $BulletContainer
 @onready var enemy_spawner: Node2D = $EnemySpawner
@@ -31,7 +31,8 @@ func _ready() -> void:
 
 func _loop():
 	#Conductor.set_song(MISTA_GREEN_ROUGH_LOOP, 162)
-	Conductor.set_song(RUMBLE_AT_THE_GATES, 190)
+	#Conductor.set_song(RUMBLE_AT_THE_GATES, 190)
+	Conductor.set_song(ABANDONED_FREQUENCY, 140)
 	Conductor.play()
 
 func enemy_died():
