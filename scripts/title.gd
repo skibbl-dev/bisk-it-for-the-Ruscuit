@@ -7,8 +7,8 @@ const MISTA_GREEN_ROUGH_LOOP = preload("res://assets/music/mista green rough loo
 #95 or 190
 const RUMBLE_AT_THE_GATES = preload("res://assets/music/Rumble at the Gates.ogg")
 
-# 140 bpm
-const ABANDONED_FREQUENCY = preload("res://assets/music/abandoned frequency F01 17171kHz-LOOP.wav")
+# 175
+const BLACKOUT = preload("res://assets/music/Blackout.wav")
 
 @onready var pulse_player: ConductedAnimationPlayer = $PulsePlayer
 
@@ -31,8 +31,8 @@ func _ready() -> void:
 		node.hide()
 	set_crack_level(0)
 	#Conductor.set_song(MISTA_GREEN_ROUGH_START, 162)
-	Conductor.set_song(RUMBLE_AT_THE_GATES, 190)
-	Conductor.set_song(ABANDONED_FREQUENCY, 140)
+	#Conductor.set_song(RUMBLE_AT_THE_GATES, 190)
+	Conductor.set_song(BLACKOUT, 170)
 	Conductor.play()
 	Conductor.connect("finished", _loop)
 	conducted_player.play("pulsing")
@@ -41,8 +41,8 @@ func _ready() -> void:
 
 func _loop():
 	#Conductor.set_song(MISTA_GREEN_ROUGH_LOOP, 162)
-	Conductor.set_song(RUMBLE_AT_THE_GATES, 190)
-	Conductor.set_song(ABANDONED_FREQUENCY, 140)
+	#Conductor.set_song(RUMBLE_AT_THE_GATES, 190)
+	Conductor.set_song(BLACKOUT, 170)
 	Conductor.play()
 
 func set_crack_level(level: int) -> void:
