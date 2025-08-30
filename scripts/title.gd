@@ -75,3 +75,6 @@ func shake():
 	var rand_offset = Vector2(randi_range(-10, 10), randi_range(-10, 10))
 	position += rand_offset
 	tween.tween_property(self, "position", Vector2.ZERO, 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+func _on_quit_area_entered(_area: Area2D) -> void:
+	get_tree().quit()
