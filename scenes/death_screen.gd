@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var sad_music: AudioStreamPlayer = $SAD_MUSIC
 
-var can_again : bool = false
+var can_again = false
 
 func _ready() -> void:
 	Conductor.stop()
