@@ -30,9 +30,9 @@ func _ready() -> void:
 	for node in states:
 		node.hide()
 	set_crack_level(0)
-	#Conductor.set_song(MISTA_GREEN_ROUGH_START, 162)
+	Conductor.set_song(MISTA_GREEN_ROUGH_START, 162)
 	#Conductor.set_song(RUMBLE_AT_THE_GATES, 190)
-	Conductor.set_song(BLACKOUT, 170)
+	#Conductor.set_song(BLACKOUT, 170)
 	Conductor.play()
 	Conductor.connect("finished", _loop)
 	conducted_player.play("pulsing")
@@ -40,9 +40,9 @@ func _ready() -> void:
 	#explosion_sound.volume_db = -40
 
 func _loop():
-	#Conductor.set_song(MISTA_GREEN_ROUGH_LOOP, 162)
+	Conductor.set_song(MISTA_GREEN_ROUGH_LOOP, 162)
 	#Conductor.set_song(RUMBLE_AT_THE_GATES, 190)
-	Conductor.set_song(BLACKOUT, 170)
+	#Conductor.set_song(BLACKOUT, 170)
 	Conductor.play()
 
 func set_crack_level(level: int) -> void:

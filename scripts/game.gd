@@ -30,9 +30,9 @@ func _ready() -> void:
 	enemy_spawner.spawn_next_wave()
 
 func _loop():
-	#Conductor.set_song(MISTA_GREEN_ROUGH_LOOP, 162)
+	Conductor.set_song(MISTA_GREEN_ROUGH_LOOP, 162)
 	#Conductor.set_song(RUMBLE_AT_THE_GATES, 190)
-	Conductor.set_song(BLACKOUT, 170)
+	#Conductor.set_song(BLACKOUT, 170)
 	Conductor.play()
 
 func enemy_died():
