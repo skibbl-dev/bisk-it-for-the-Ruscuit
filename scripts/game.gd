@@ -8,6 +8,8 @@ const MISTA_GREEN_ROUGH_LOOP = preload("res://assets/music/mista green rough loo
 @onready var enemy_spawner: Node2D = $EnemySpawner
 @onready var wave_transition: AnimationPlayer = $WaveTransition
 
+@onready var wave_label: Label = $WaveTransition/RunIndicators/Label
+
 static var INSTANCE
 
 func _ready() -> void:
@@ -30,3 +32,6 @@ func enemy_died():
 		# then when animation finished spawn spawn_next_wave
 		#enemy_spawner.spawn_next_wave()
 		wave_transition.play("WaveTransitions")
+
+func update_wave():
+	wave_label.text = "Wave : " + str(enemy_spawner.wave+1)

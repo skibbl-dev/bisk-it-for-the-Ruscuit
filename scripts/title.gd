@@ -41,11 +41,11 @@ func set_crack_level(level: int) -> void:
 	shake()
 
 func _on_start_area_entered(_area: Area2D) -> void:
+	explosion_sound.play() # changed so it happens everytime (including last)
+	explosion_sound.volume_db += linear_to_db(10) # changed so it doesn't double everytime
 	if current_state < states.size() - 1:
 		start_particles.emitting = true
 		set_crack_level(current_state + 1)
-		explosion_sound.play()
-		explosion_sound.volume_db += 10
 	else:
 		endparticles.emitting = true
 		await get_tree().create_timer(.4).timeout
