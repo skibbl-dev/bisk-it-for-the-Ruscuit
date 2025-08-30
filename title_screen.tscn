@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dklgv56crsspv"]
+[gd_scene load_steps=25 format=3 uid="uid://dklgv56crsspv"]
 
 [ext_resource type="Script" uid="uid://cktdpwqhrui52" path="res://scripts/title.gd" id="1_n1yhu"]
 [ext_resource type="PackedScene" uid="uid://sr188lxw1nlt" path="res://objects/shadow_shader.tscn" id="3_wot2p"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cbodqa6kal4jb" path="res://assets/cube1.png" id="12_fd0ao"]
 [ext_resource type="Texture2D" uid="uid://cwcyerepvgq7v" path="res://assets/cube2.png" id="13_g3bb0"]
 [ext_resource type="Texture2D" uid="uid://b1r3s4nag0l3x" path="res://assets/cube3.png" id="14_4crdw"]
+[ext_resource type="PackedScene" uid="uid://nqec0bspmffj" path="res://objects/MouseCursor.tscn" id="14_n1yhu"]
 
 [sub_resource type="Animation" id="Animation_mgrm8"]
 length = 0.001
@@ -434,5 +435,8 @@ texture = ExtResource("14_4crdw")
 [node name="Sprite2D8" type="Sprite2D" parent="squares/little"]
 position = Vector2(441, 226)
 texture = ExtResource("14_4crdw")
+
+[node name="MouseCursor" parent="." instance=ExtResource("14_n1yhu")]
+layout_mode = 1
 
 [connection signal="area_entered" from="START" to="." method="_on_start_area_entered"]

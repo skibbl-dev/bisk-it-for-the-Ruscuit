@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://rsgpxupbcy8a"]
+[gd_scene load_steps=19 format=3 uid="uid://rsgpxupbcy8a"]
 
 [ext_resource type="Script" uid="uid://drdvmo3fesqq6" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bitjw4ddfb7do" path="res://objects/Player.tscn" id="1_yqjtg"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cql8hos43jppj" path="res://assets/WaveCompleted.png" id="8_gee14"]
 [ext_resource type="Texture2D" uid="uid://dcfcddemtxxmy" path="res://assets/RunIndicatorbackground.png" id="9_0tnpc"]
 [ext_resource type="FontFile" uid="uid://en8i7l5eksif" path="res://assets/m6x11.ttf" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://nqec0bspmffj" path="res://objects/MouseCursor.tscn" id="11_kvpfn"]
 
 [sub_resource type="Animation" id="Animation_gee14"]
 length = 0.001
@@ -257,3 +258,5 @@ theme_override_fonts/font = ExtResource("10_vtaks")
 text = "Wave : 1"
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="MouseCursor" parent="." instance=ExtResource("11_kvpfn")]
