@@ -57,7 +57,7 @@ _data = {
 &"start": SubResource("Animation_3ow1o")
 }
 
-[node name="Enemy" instance=ExtResource("1_pbmd8")]
+[node name="TriangleEnemy" instance=ExtResource("1_pbmd8")]
 bullets = Array[PackedScene]([ExtResource("2_3ow1o")])
 
 [node name="CollisionShape2D" parent="." index="0"]

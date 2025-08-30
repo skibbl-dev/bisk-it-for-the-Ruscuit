@@ -13,4 +13,5 @@ func _ready() -> void:
 	for child in randomize_positions.get_children():
 		child.reparent(self)
 		child.position = Vector2(randi_range(margin.x, screen_size.x-margin.x), randi_range(margin.y, screen_size.y-margin.y))
+		child.start_position = child.global_position
 	randomize_positions.queue_free()

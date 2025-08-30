@@ -5,6 +5,9 @@ extends CharacterBody2D
 @export var health:int = 1
 @export var heal_amount:int = 0
 
+var start_position:Vector2
+@export var new_position:Vector2
+
 @onready var anim_player: ConductedAnimationPlayer = $ConductedAnimationPlayer
 
 var last_summoned_beat:float = -1
@@ -12,8 +15,12 @@ var last_summoned_beat:float = -1
 signal die
 
 func _ready() -> void:
+	start_position = global_position
 	anim_player.play("start")
 	die.connect(Game.INSTANCE.enemy_died)
+
+func _physics_process(_delta: float) -> void:
+	global_position = start_position+new_position
 
 func summon_bullet(bullet:int, beat:float, angle:float=0, offset:Vector2=Vector2(0,0)): ## if angle = -999 face toward player
 	

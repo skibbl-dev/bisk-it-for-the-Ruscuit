@@ -1,0 +1,250 @@
+[gd_scene load_steps=10 format=3 uid="uid://c2l32b6uej1of"]
+
+[ext_resource type="PackedScene" uid="uid://cmfijyyvwcq5i" path="res://objects/enemy.tscn" id="1_mlh3p"]
+[ext_resource type="Texture2D" uid="uid://d0m3ldd2oai7a" path="res://assets/sprites/stretchEnemy.png" id="2_fencq"]
+[ext_resource type="PackedScene" uid="uid://bnwfjt0lrfjei" path="res://objects/basicCircularBullet.tscn" id="2_hnd6t"]
+[ext_resource type="PackedScene" uid="uid://bw1i1fhpo01y6" path="res://objects/bullets/DiamondBullets.tscn" id="3_wpgyf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mlh3p"]
+radius = 9.0
+
+[sub_resource type="Animation" id="Animation_hnd6t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_fencq"]
+resource_name = "loop"
+length = 4.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95, 2, 3, 3.05, 3.1, 3.15, 3.2, 3.25, 3.3, 3.35, 3.4, 3.45, 3.5, 3.55, 3.6, 3.65, 3.7, 3.75, 3.8, 3.85, 3.9, 3.95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [1, 3.0, 0.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, 90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [1, 3.0, 0.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 0.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}, {
+"args": [0, 1.0, -90.0, Vector2(0, 0)],
+"method": &"summon_bullet"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:new_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(64, 0), Vector2(64, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 1, 1.1, 1.2, 1.3, 2, 2.05, 3, 3.1, 3.2, 3.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 0, 0, 1, 2, 3, 1, 0, 0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_mlh3p"]
+resource_name = "start"
+length = 0.001
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"loop"],
+"method": &"change_animation"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fencq"]
+_data = {
+&"RESET": SubResource("Animation_hnd6t"),
+&"loop": SubResource("Animation_fencq"),
+&"start": SubResource("Animation_mlh3p")
+}
+
+[node name="StretchEnemy" instance=ExtResource("1_mlh3p")]
+bullets = Array[PackedScene]([ExtResource("2_hnd6t"), ExtResource("3_wpgyf")])
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_mlh3p")
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource("2_fencq")
+offset = Vector2(0.5, 0.5)
+hframes = 4
+frame = 1
+
+[node name="CollisionShape2D" parent="hurtbox" index="0"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_mlh3p")
+
+[node name="ConductedAnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_fencq")
+}

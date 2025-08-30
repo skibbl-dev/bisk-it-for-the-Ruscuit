@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cmn1ul2kuj1ay" path="res://scripts/wave.gd" id="1_7aqe7"]
 [ext_resource type="PackedScene" uid="uid://ba5bq2onmtl32" path="res://objects/enemies/BasicAimAtPlayer.tscn" id="1_lpxv0"]
-[ext_resource type="PackedScene" uid="uid://b35sqlov4eufl" path="res://objects/enemies/guard.tscn" id="3_yymg1"]
+[ext_resource type="PackedScene" uid="uid://c2l32b6uej1of" path="res://objects/enemies/stretchEnemy.tscn" id="3_yymg1"]
 
 [node name="wave0-0" type="Node2D"]
 script = ExtResource("1_7aqe7")
@@ -13,8 +13,4 @@ script = ExtResource("1_7aqe7")
 collision_layer = 1
 collision_mask = 1
 
-[node name="Enemy2" parent="RandomizePositions" instance=ExtResource("1_lpxv0")]
-collision_layer = 1
-collision_mask = 1
-
-[node name="Enemy3" parent="RandomizePositions" instance=ExtResource("3_yymg1")]
+[node name="Enemy2" parent="RandomizePositions" instance=ExtResource("3_yymg1")]
