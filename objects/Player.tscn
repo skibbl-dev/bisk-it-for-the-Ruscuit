@@ -1,9 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://bitjw4ddfb7do"]
+[gd_scene load_steps=15 format=3 uid="uid://bitjw4ddfb7do"]
 
 [ext_resource type="Script" uid="uid://bg0johx5wrgae" path="res://scripts/player.gd" id="1_8ak8y"]
 [ext_resource type="Texture2D" uid="uid://dwjxl8iv78mhb" path="res://assets/sprites/Player.png" id="2_gndvh"]
 [ext_resource type="Texture2D" uid="uid://df300iu55uj4k" path="res://assets/sprites/weapon.png" id="3_6vqvp"]
 [ext_resource type="Script" uid="uid://dsk3wv1yb4rho" path="res://addons/conductor/conducted_timer.gd" id="4_f6j3j"]
+[ext_resource type="AudioStream" uid="uid://cylohqr7yaef2" path="res://assets/audio/swoop1.wav" id="5_reqkl"]
+[ext_resource type="AudioStream" uid="uid://cxlksaxpownl3" path="res://assets/audio/attack.wav" id="6_reqkl"]
+[ext_resource type="AudioStream" uid="uid://ms6by02tbdyh" path="res://assets/audio/hurt.wav" id="7_jmmr7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gndvh"]
 size = Vector2(14, 14)
@@ -138,8 +141,7 @@ texture = ExtResource("3_6vqvp")
 
 [node name="Area2D" type="Area2D" parent="WeaponPivot" groups=["player_attack"]]
 collision_layer = 4
-collision_mask = 0
-monitoring = false
+collision_mask = 18
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WeaponPivot/Area2D"]
 polygon = PackedVector2Array(12, -11, 18, 0, 12, 11, 30, 13, 35, 0, 30, -13)
@@ -188,5 +190,17 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
 shape = SubResource("RectangleShape2D_gndvh")
 
+[node name="DashSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_reqkl")
+volume_db = 13.0
+
+[node name="AttackSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_reqkl")
+
+[node name="HurtSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_jmmr7")
+
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="area_entered" from="WeaponPivot/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="WeaponPivot/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]

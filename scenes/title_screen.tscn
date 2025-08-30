@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c6qvp45a3m4aj" path="res://assets/buttons/start_biscuitdam1.png" id="7_mykxm"]
 [ext_resource type="Texture2D" uid="uid://d0dug76gg41da" path="res://assets/buttons/start_biscuitdam2.png" id="8_tklts"]
 [ext_resource type="Texture2D" uid="uid://jxtnx5h835fs" path="res://assets/buttons/start_biscuitdam3.png" id="9_u26n3"]
-[ext_resource type="AudioStream" uid="uid://crlr3bsdea2th" path="res://assets/pixel-explosion-319166.mp3" id="10_tklts"]
+[ext_resource type="AudioStream" uid="uid://crlr3bsdea2th" path="res://assets/audio/start.mp3" id="10_tklts"]
 [ext_resource type="Texture2D" uid="uid://cbodqa6kal4jb" path="res://assets/cube1.png" id="11_frs5l"]
 [ext_resource type="Texture2D" uid="uid://cwcyerepvgq7v" path="res://assets/cube2.png" id="12_mynnq"]
 [ext_resource type="Texture2D" uid="uid://b1r3s4nag0l3x" path="res://assets/cube3.png" id="13_e8tpv"]
@@ -344,7 +344,7 @@ shape = SubResource("RectangleShape2D_e54dn")
 
 [node name="explosion" type="AudioStreamPlayer" parent="START"]
 stream = ExtResource("10_tklts")
-volume_db = -20.0
+volume_db = -10.0
 
 [node name="button_collision" type="StaticBody2D" parent="."]
 collision_layer = 8

@@ -10,6 +10,8 @@ const MISTA_GREEN_ROUGH_LOOP = preload("res://assets/music/mista green rough loo
 
 @onready var wave_label: Label = $WaveTransition/RunIndicators/Label
 
+@onready var player: CharacterBody2D = $Player
+
 static var INSTANCE
 
 func _ready() -> void:
@@ -35,3 +37,7 @@ func enemy_died():
 
 func update_wave():
 	wave_label.text = "Wave : " + str(enemy_spawner.wave+1)
+
+func kill_bullets():
+	for child in bullet_container.get_children():
+		child.queue_free()

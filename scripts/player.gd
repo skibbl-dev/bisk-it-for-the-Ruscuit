@@ -36,6 +36,10 @@ var FRAME_RATE:float
 #var acted_this_beat:bool = false
 var last_acted_beat:int = -2
 
+@onready var dash_sfx: AudioStreamPlayer = $DashSFX
+@onready var attack_sfx: AudioStreamPlayer = $AttackSFX
+@onready var hurt_sfx: AudioStreamPlayer = $HurtSFX
+
 func _ready() -> void:
 	#$PulsePlayer.play("pulse")
 	FRAME_RATE = Engine.get_physics_ticks_per_second()
@@ -101,6 +105,7 @@ func _dash():
 		#print( (dash_distance/(dash_time*Conductor.sec_per_beat)) )
 		#last_dash_beat = round(Conductor.current_beat)
 		last_acted_beat = round(Conductor.current_beat)
+		dash_sfx.play()
 		#acted_this_beat = true
 
 func _parry():
@@ -109,6 +114,7 @@ func _parry():
 	and abs((Conductor.current_beat+(input_offset*Conductor.beat_per_sec)) - round(Conductor.current_beat+(input_offset*Conductor.beat_per_sec))) <= input_window ):
 		attack_animation_player.play("attack")
 		last_acted_beat = round(Conductor.current_beat)
+		attack_sfx.play()
 		#acted_this_beat = true
 
 func _rotate_weapon():
@@ -129,10 +135,32 @@ func _on_hurtbox_area_entered(_area: Area2D) -> void:
 		return
 	if( ((Conductor.current_beat) - last_hit) < hit_cooldown ):
 		return
+	hurt_sfx.play()
 	last_hit = Conductor.current_beat
+	hurt()
+	_area.queue_free()
+
+func hurt():
 	if sprite.frame == 3:
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/death_screen.tscn")
 		#get_tree().change_scene_to_file("res://scenes/death_screen.tscn")
 	else:
 		sprite.frame+=1
-	_area.queue_free()
+
+func heal(health):
+	sprite.frame = clampi(sprite.frame-health,0,3)
+
+func hurt_enemy():
+	var new_hurt_sfx:AudioStreamPlayer = hurt_sfx.duplicate()
+	add_child(new_hurt_sfx)
+	new_hurt_sfx.connect("finished", hurt_audio_done.bind(new_hurt_sfx))
+	new_hurt_sfx.play()
+
+func hurt_audio_done(sfx:Node):
+	sfx.queue_free()
+
+func _on_area_2d_area_entered(_area: Area2D) -> void:
+	hurt_enemy()
+
+func _on_area_2d_body_entered(_body: Node2D) -> void:
+	hurt_enemy()

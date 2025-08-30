@@ -28,7 +28,7 @@ func _ready() -> void:
 	Conductor.connect("finished", _loop)
 	conducted_player.play("pulsing")
 	pulse_player.play("pulse")
-	explosion_sound.volume_db = -40
+	#explosion_sound.volume_db = -40
 
 func _loop():
 	Conductor.set_song(MISTA_GREEN_ROUGH_LOOP, 162)
@@ -41,12 +41,15 @@ func set_crack_level(level: int) -> void:
 	shake()
 
 func _on_start_area_entered(_area: Area2D) -> void:
+	if current_state >= states.size():
+		return
 	explosion_sound.play() # changed so it happens everytime (including last)
-	explosion_sound.volume_db += linear_to_db(10) # changed so it doesn't double everytime
+	explosion_sound.volume_db += linear_to_db(2) # changed so it doesn't double everytime
 	if current_state < states.size() - 1:
 		start_particles.emitting = true
 		set_crack_level(current_state + 1)
 	else:
+		set_crack_level(current_state + 1)
 		endparticles.emitting = true
 		await get_tree().create_timer(.4).timeout
 		#I luv you griffin

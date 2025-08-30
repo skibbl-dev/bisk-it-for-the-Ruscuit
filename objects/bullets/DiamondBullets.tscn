@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw1i1fhpo01y6"]
+
+[ext_resource type="PackedScene" uid="uid://cph18p2giha63" path="res://objects/bullets/circular_bullets.tscn" id="1_jx1fe"]
+
+[node name="CircularBullets" instance=ExtResource("1_jx1fe")]
+
+[node name="Bullet" parent="." index="0"]
+speed = 100.0
+
+[node name="Bullet4" parent="." index="1"]
+speed = 100.0
+
+[node name="Bullet5" parent="." index="2"]
+speed = 100.0
+life_time = 0.0
+
+[node name="Bullet6" parent="." index="3"]
+speed = 100.0
+life_time = 0.0
+
+[node name="Bullet7" parent="." index="4"]
+speed = 100.0
+life_time = 0.0
+
+[node name="Bullet8" parent="." index="5"]
+speed = 100.0
+life_time = 0.0
+
+[node name="Bullet3" parent="." index="6"]
+speed = 100.0
+
+[node name="Bullet2" parent="." index="7"]
+speed = 100.0

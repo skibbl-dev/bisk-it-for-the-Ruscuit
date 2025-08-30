@@ -12,8 +12,6 @@ func spawn_next_wave():
 	
 	if(current_wave != null):
 		current_wave.queue_free()
-	for child in Game.INSTANCE.bullet_container.get_children():
-		child.queue_free()
 	var new_wave = enemy_waves[wave].pick_random().instantiate()
 	call_deferred("add_child", new_wave)
 	#add_child(new_wave)

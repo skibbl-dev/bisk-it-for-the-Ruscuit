@@ -6,6 +6,8 @@ extends Area2D
 @export var normal_color:Color = Color(0.722,0.525,0.525)
 @export var deflectable_color:Color = Color(0.62,0.553,0.694)
 @export_range(0,1,0.05) var chance_for_deflectable:float = 0.3
+@export var life_time:float = -1
+@onready var start_beat = Conductor.current_beat
 
 @onready var FRAME_RATE:float = Engine.get_physics_ticks_per_second()
 
@@ -23,6 +25,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	position += (Vector2.RIGHT.rotated(rotation))*speed*delta
+	if(life_time == -1):
+		return
+	if (Conductor.current_beat - start_beat) > life_time:
+		queue_free()
 
 func _on_area_entered(_area: Area2D) -> void:
 	#if(_area.is_in_group("player_attack")): # hit by attack

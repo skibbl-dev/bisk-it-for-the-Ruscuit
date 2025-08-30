@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var bullets:Array[PackedScene]
 #@export var bullet_summon_cooldown:float = 4
 @export var health:int = 1
+@export var heal_amount:int = 0
 
 @onready var anim_player: ConductedAnimationPlayer = $ConductedAnimationPlayer
 
@@ -38,5 +39,6 @@ func change_animtion_with_chance(_name:StringName, chance:float):
 func _on_hurtbox_area_entered(_area: Area2D) -> void:
 	health -= 1
 	if(health <= 0):
+		Game.INSTANCE.player.heal(heal_amount)
 		die.emit()
 		queue_free()
