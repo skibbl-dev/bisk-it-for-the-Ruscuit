@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqddy0hdobcom"]
+[gd_scene load_steps=5 format=3 uid="uid://cqddy0hdobcom"]
 
-[ext_resource type="Script" path="res://scenes/death_screen.gd" id="1_mqh5l"]
+[ext_resource type="Script" uid="uid://b5y1dv4ckft5g" path="res://scenes/death_screen.gd" id="1_mqh5l"]
 [ext_resource type="PackedScene" uid="uid://sr188lxw1nlt" path="res://objects/shadow_shader.tscn" id="1_uyutr"]
 [ext_resource type="FontFile" uid="uid://en8i7l5eksif" path="res://assets/m6x11.ttf" id="2_dwo6e"]
+[ext_resource type="AudioStream" uid="uid://bq6x3nwo85y14" path="res://assets/music/cinematic-dramatic-11120.mp3" id="4_7ns25"]
 
 [node name="death_screen" type="Node2D"]
 script = ExtResource("1_mqh5l")
@@ -64,3 +65,6 @@ theme_override_fonts/font = ExtResource("2_dwo6e")
 theme_override_font_sizes/font_size = 16
 text = "Click Anywhere to Play Again"
 horizontal_alignment = 1
+
+[node name="SAD_MUSIC" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7ns25")
