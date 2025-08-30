@@ -2,6 +2,8 @@ extends Node2D
 
 #Array 1 will contain all scenese that can spawn for wave 1
 @export var enemy_waves:Array[Array]
+@export var wave_streams:Array[AudioStream]
+@export var wave_bpms:Array[float]
 var wave:int = 0
 var current_wave: Node2D
 #@onready var wave_label: Label = $WaveLabel
@@ -12,6 +14,10 @@ func spawn_next_wave():
 	
 	if(current_wave != null):
 		current_wave.queue_free()
+	var old_stream:AudioStream = Conductor.stream
+	Conductor.set_song(wave_streams[wave], wave_bpms[wave])
+	if(old_stream != Conductor.stream):
+		Conductor.play()
 	var new_wave = enemy_waves[wave].pick_random().instantiate()
 	call_deferred("add_child", new_wave)
 	#add_child(new_wave)

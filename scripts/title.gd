@@ -30,7 +30,8 @@ func _ready() -> void:
 	for node in states:
 		node.hide()
 	set_crack_level(0)
-	Conductor.set_song(MISTA_GREEN_ROUGH_START, 162)
+	#Conductor.set_song(MISTA_GREEN_ROUGH_START, 162)
+	Conductor.set_song(MISTA_GREEN_ROUGH_LOOP, 162)
 	#Conductor.set_song(RUMBLE_AT_THE_GATES, 190)
 	#Conductor.set_song(BLACKOUT, 170)
 	Conductor.play()
@@ -74,3 +75,6 @@ func shake():
 	var rand_offset = Vector2(randi_range(-10, 10), randi_range(-10, 10))
 	position += rand_offset
 	tween.tween_property(self, "position", Vector2.ZERO, 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+func _on_quit_area_entered(_area: Area2D) -> void:
+	get_tree().quit()

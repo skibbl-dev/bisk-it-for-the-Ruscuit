@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dklgv56crsspv"]
+[gd_scene load_steps=27 format=3 uid="uid://dklgv56crsspv"]
 
 [ext_resource type="Script" uid="uid://cktdpwqhrui52" path="res://scripts/title.gd" id="1_n1yhu"]
 [ext_resource type="PackedScene" uid="uid://sr188lxw1nlt" path="res://objects/shadow_shader.tscn" id="3_wot2p"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://d0dug76gg41da" path="res://assets/buttons/start_biscuitdam2.png" id="9_g2tdu"]
 [ext_resource type="Texture2D" uid="uid://jxtnx5h835fs" path="res://assets/buttons/start_biscuitdam3.png" id="10_7yan6"]
 [ext_resource type="AudioStream" uid="uid://crlr3bsdea2th" path="res://assets/audio/start.mp3" id="11_4h4vs"]
+[ext_resource type="Texture2D" uid="uid://dx4dv5s5ef3yc" path="res://assets/buttons/quit_buscuit.png" id="11_e8tpv"]
 [ext_resource type="Texture2D" uid="uid://cbodqa6kal4jb" path="res://assets/cube1.png" id="12_fd0ao"]
 [ext_resource type="Texture2D" uid="uid://cwcyerepvgq7v" path="res://assets/cube2.png" id="13_g3bb0"]
 [ext_resource type="Texture2D" uid="uid://b1r3s4nag0l3x" path="res://assets/cube3.png" id="14_4crdw"]
@@ -206,6 +207,9 @@ scale_max = 25.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e54dn"]
 size = Vector2(104, 44)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qe4i"]
+size = Vector2(74, 22)
+
 [node name="title_screen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -279,7 +283,7 @@ theme_override_font_sizes/font_size = 16
 text = "skibbl, dibin, eggra"
 
 [node name="Player" parent="." instance=ExtResource("6_y8ura")]
-position = Vector2(238, 256)
+position = Vector2(240, 209)
 collision_mask = 8
 input_window = 1.0
 
@@ -349,6 +353,22 @@ shape = SubResource("RectangleShape2D_e54dn")
 stream = ExtResource("11_4h4vs")
 volume_db = -10.0
 
+[node name="Quit" type="Area2D" parent="."]
+modulate = Color(0.497474, 0.497474, 0.497474, 1)
+position = Vector2(239, 260)
+collision_layer = 0
+collision_mask = 4
+
+[node name="dam0" type="Sprite2D" parent="Quit"]
+texture = ExtResource("11_e8tpv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Quit"]
+shape = SubResource("RectangleShape2D_4qe4i")
+
+[node name="explosion" type="AudioStreamPlayer" parent="Quit"]
+stream = ExtResource("11_4h4vs")
+volume_db = -10.0
+
 [node name="button_collision" type="StaticBody2D" parent="."]
 collision_layer = 8
 collision_mask = 0
@@ -356,6 +376,10 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="button_collision"]
 position = Vector2(239, 132)
 shape = SubResource("RectangleShape2D_e54dn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="button_collision"]
+position = Vector2(239, 260)
+shape = SubResource("RectangleShape2D_4qe4i")
 
 [node name="squares" type="Node2D" parent="."]
 
@@ -440,3 +464,4 @@ texture = ExtResource("14_4crdw")
 layout_mode = 1
 
 [connection signal="area_entered" from="START" to="." method="_on_start_area_entered"]
+[connection signal="area_entered" from="Quit" to="." method="_on_quit_area_entered"]

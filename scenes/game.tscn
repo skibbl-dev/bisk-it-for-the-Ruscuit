@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://rsgpxupbcy8a"]
+[gd_scene load_steps=22 format=3 uid="uid://rsgpxupbcy8a"]
 
 [ext_resource type="Script" uid="uid://drdvmo3fesqq6" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bitjw4ddfb7do" path="res://objects/Player.tscn" id="1_yqjtg"]
@@ -8,7 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://nw5sp76j1edc" path="res://objects/waves/wave_0_0.tscn" id="6_gee14"]
 [ext_resource type="PackedScene" uid="uid://2yki4b8tm6sm" path="res://objects/waves/wave_0_1.tscn" id="7_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://cql8hos43jppj" path="res://assets/WaveCompleted.png" id="8_gee14"]
+[ext_resource type="AudioStream" uid="uid://bwfm4grdgr0pn" path="res://assets/music/mista green rough loop.wav" id="8_trtic"]
 [ext_resource type="Texture2D" uid="uid://dcfcddemtxxmy" path="res://assets/RunIndicatorbackground.png" id="9_0tnpc"]
+[ext_resource type="AudioStream" uid="uid://dj02jvy0mkkui" path="res://assets/music/Blackout.wav" id="9_ir15t"]
+[ext_resource type="AudioStream" uid="uid://vjc3o6q8omfm" path="res://assets/music/Rumble at the Gates.ogg" id="10_ca42v"]
 [ext_resource type="FontFile" uid="uid://en8i7l5eksif" path="res://assets/m6x11.ttf" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://nqec0bspmffj" path="res://objects/MouseCursor.tscn" id="11_kvpfn"]
 
@@ -213,6 +216,8 @@ shape = SubResource("RectangleShape2D_lbhrr")
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("5_iywne")
 enemy_waves = Array[Array]([[ExtResource("6_gee14")], [ExtResource("7_0tnpc")], [ExtResource("6_gee14")], [ExtResource("6_gee14")]])
+wave_streams = Array[AudioStream]([ExtResource("8_trtic"), ExtResource("8_trtic"), ExtResource("8_trtic"), ExtResource("8_trtic"), ExtResource("9_ir15t"), ExtResource("9_ir15t"), ExtResource("9_ir15t"), ExtResource("9_ir15t"), ExtResource("9_ir15t"), ExtResource("10_ca42v"), ExtResource("10_ca42v"), ExtResource("10_ca42v"), ExtResource("10_ca42v"), ExtResource("10_ca42v"), ExtResource("10_ca42v"), ExtResource("10_ca42v")])
+wave_bpms = Array[float]([162.0, 162.0, 162.0, 162.0, 170.0, 170.0, 170.0, 170.0, 170.0, 190.0, 190.0, 190.0, 190.0, 190.0, 190.0, 190.0])
 
 [node name="WaveTransition" type="AnimationPlayer" parent="."]
 libraries = {

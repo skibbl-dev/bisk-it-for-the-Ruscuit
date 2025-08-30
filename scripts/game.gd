@@ -8,7 +8,7 @@ const MISTA_GREEN_ROUGH_LOOP = preload("res://assets/music/mista green rough loo
 # 95 or 190
 const RUMBLE_AT_THE_GATES = preload("res://assets/music/Rumble at the Gates.ogg")
 
-# 175
+# 170
 const BLACKOUT = preload("res://assets/music/Blackout.wav")
 
 @onready var bullet_container: Node2D = $BulletContainer
@@ -30,7 +30,7 @@ func _ready() -> void:
 	enemy_spawner.spawn_next_wave()
 
 func _loop():
-	Conductor.set_song(MISTA_GREEN_ROUGH_LOOP, 162)
+	#Conductor.set_song(MISTA_GREEN_ROUGH_LOOP, 162)
 	#Conductor.set_song(RUMBLE_AT_THE_GATES, 190)
 	#Conductor.set_song(BLACKOUT, 170)
 	Conductor.play()
