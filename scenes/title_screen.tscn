@@ -81,7 +81,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5, 1, 1.5),
 "transitions": PackedFloat32Array(0.3, 3.33333, 0.3, 3.33333),
 "update": 0,
-"values": [Color(1.35, 1.2, 1.2, 1), Color(1.35, 1.2, 1.2, 1), Color(1.35, 1.2, 1.2, 1), Color(1.35, 1.2, 1.2, 1)]
+"values": [Color(1.35, 1.2, 1.2, 1), Color(1, 1, 1, 1), Color(1.35, 1.2, 1.2, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3yumr"]
@@ -238,7 +238,7 @@ pivot_offset = Vector2(130, 26)
 theme_override_colors/font_color = Color(0.972549, 0.921569, 0.803922, 1)
 theme_override_fonts/font = ExtResource("4_kvwfe")
 theme_override_font_sizes/font_size = 32
-text = "Tempo Clash"
+text = "Tempol of Hell"
 horizontal_alignment = 1
 vertical_alignment = 1
 
