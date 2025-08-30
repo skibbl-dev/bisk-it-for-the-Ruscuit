@@ -1,18 +1,18 @@
 [gd_scene load_steps=24 format=3 uid="uid://dklgv56crsspv"]
 
-[ext_resource type="Script" uid="uid://cktdpwqhrui52" path="res://scripts/title.gd" id="1_mgrm8"]
-[ext_resource type="PackedScene" uid="uid://sr188lxw1nlt" path="res://objects/shadow_shader.tscn" id="2_mgrm8"]
-[ext_resource type="FontFile" uid="uid://en8i7l5eksif" path="res://assets/m6x11.ttf" id="3_mynnq"]
-[ext_resource type="Script" uid="uid://cee2638n8ojsx" path="res://addons/conductor/conducted_animation_player.gd" id="4_dc4i4"]
-[ext_resource type="PackedScene" uid="uid://bitjw4ddfb7do" path="res://objects/Player.tscn" id="5_dc4i4"]
-[ext_resource type="Texture2D" uid="uid://bx61tj68dxjhl" path="res://assets/buttons/start_biscuit.png" id="6_e54dn"]
-[ext_resource type="Texture2D" uid="uid://c6qvp45a3m4aj" path="res://assets/buttons/start_biscuitdam1.png" id="7_mykxm"]
-[ext_resource type="Texture2D" uid="uid://d0dug76gg41da" path="res://assets/buttons/start_biscuitdam2.png" id="8_tklts"]
-[ext_resource type="Texture2D" uid="uid://jxtnx5h835fs" path="res://assets/buttons/start_biscuitdam3.png" id="9_u26n3"]
-[ext_resource type="AudioStream" uid="uid://crlr3bsdea2th" path="res://assets/audio/start.mp3" id="10_tklts"]
-[ext_resource type="Texture2D" uid="uid://cbodqa6kal4jb" path="res://assets/cube1.png" id="11_frs5l"]
-[ext_resource type="Texture2D" uid="uid://cwcyerepvgq7v" path="res://assets/cube2.png" id="12_mynnq"]
-[ext_resource type="Texture2D" uid="uid://b1r3s4nag0l3x" path="res://assets/cube3.png" id="13_e8tpv"]
+[ext_resource type="Script" uid="uid://cktdpwqhrui52" path="res://scripts/title.gd" id="1_n1yhu"]
+[ext_resource type="PackedScene" uid="uid://sr188lxw1nlt" path="res://objects/shadow_shader.tscn" id="3_wot2p"]
+[ext_resource type="FontFile" uid="uid://en8i7l5eksif" path="res://assets/m6x11.ttf" id="4_kvwfe"]
+[ext_resource type="Script" uid="uid://cee2638n8ojsx" path="res://addons/conductor/conducted_animation_player.gd" id="5_l4tom"]
+[ext_resource type="PackedScene" uid="uid://bitjw4ddfb7do" path="res://objects/Player.tscn" id="6_y8ura"]
+[ext_resource type="Texture2D" uid="uid://bx61tj68dxjhl" path="res://assets/buttons/start_biscuit.png" id="7_aav61"]
+[ext_resource type="Texture2D" uid="uid://c6qvp45a3m4aj" path="res://assets/buttons/start_biscuitdam1.png" id="8_a64np"]
+[ext_resource type="Texture2D" uid="uid://d0dug76gg41da" path="res://assets/buttons/start_biscuitdam2.png" id="9_g2tdu"]
+[ext_resource type="Texture2D" uid="uid://jxtnx5h835fs" path="res://assets/buttons/start_biscuitdam3.png" id="10_7yan6"]
+[ext_resource type="AudioStream" uid="uid://crlr3bsdea2th" path="res://assets/audio/start.mp3" id="11_4h4vs"]
+[ext_resource type="Texture2D" uid="uid://cbodqa6kal4jb" path="res://assets/cube1.png" id="12_fd0ao"]
+[ext_resource type="Texture2D" uid="uid://cwcyerepvgq7v" path="res://assets/cube2.png" id="13_g3bb0"]
+[ext_resource type="Texture2D" uid="uid://b1r3s4nag0l3x" path="res://assets/cube3.png" id="14_4crdw"]
 
 [sub_resource type="Animation" id="Animation_mgrm8"]
 length = 0.001
@@ -212,9 +212,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_mgrm8")
+script = ExtResource("1_n1yhu")
 
-[node name="ShadowShader" parent="." instance=ExtResource("2_mgrm8")]
+[node name="ShadowShader" parent="." instance=ExtResource("3_wot2p")]
 shadow_color = Color(0.0665499, 0.0448779, 0.0557165, 1)
 
 [node name="title" type="Label" parent="."]
@@ -234,7 +234,8 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.1, 1.1)
 pivot_offset = Vector2(130, 26)
-theme_override_fonts/font = ExtResource("3_mynnq")
+theme_override_colors/font_color = Color(0.972549, 0.921569, 0.803922, 1)
+theme_override_fonts/font = ExtResource("4_kvwfe")
 theme_override_font_sizes/font_size = 32
 text = "Tempo Clash"
 horizontal_alignment = 1
@@ -244,7 +245,7 @@ vertical_alignment = 1
 libraries = {
 &"": SubResource("AnimationLibrary_3yumr")
 }
-script = ExtResource("4_dc4i4")
+script = ExtResource("5_l4tom")
 round_start_beat = true
 metadata/_custom_type_script = "uid://cee2638n8ojsx"
 
@@ -252,7 +253,7 @@ metadata/_custom_type_script = "uid://cee2638n8ojsx"
 libraries = {
 &"": SubResource("AnimationLibrary_e8tpv")
 }
-script = ExtResource("4_dc4i4")
+script = ExtResource("5_l4tom")
 round_start_beat = true
 metadata/_custom_type_script = "uid://cee2638n8ojsx"
 
@@ -271,12 +272,12 @@ offset_bottom = -3.00003
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(56, 7.5)
-theme_override_colors/font_color = Color(0.972549, 0.921569, 0.803922, 1)
-theme_override_fonts/font = ExtResource("3_mynnq")
+theme_override_colors/font_color = Color(0.882353, 0.760784, 0.627451, 1)
+theme_override_fonts/font = ExtResource("4_kvwfe")
 theme_override_font_sizes/font_size = 16
 text = "skibbl, dibin, eggra"
 
-[node name="Player" parent="." instance=ExtResource("5_dc4i4")]
+[node name="Player" parent="." instance=ExtResource("6_y8ura")]
 position = Vector2(238, 256)
 collision_mask = 8
 input_window = 1.0
@@ -329,22 +330,22 @@ collision_base_size = 18.16
 process_material = SubResource("ParticleProcessMaterial_mynnq")
 
 [node name="dam0" type="Sprite2D" parent="START"]
-texture = ExtResource("6_e54dn")
+texture = ExtResource("7_aav61")
 
 [node name="dam1" type="Sprite2D" parent="START"]
-texture = ExtResource("7_mykxm")
+texture = ExtResource("8_a64np")
 
 [node name="dam2" type="Sprite2D" parent="START"]
-texture = ExtResource("8_tklts")
+texture = ExtResource("9_g2tdu")
 
 [node name="dam3" type="Sprite2D" parent="START"]
-texture = ExtResource("9_u26n3")
+texture = ExtResource("10_7yan6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="START"]
 shape = SubResource("RectangleShape2D_e54dn")
 
 [node name="explosion" type="AudioStreamPlayer" parent="START"]
-stream = ExtResource("10_tklts")
+stream = ExtResource("11_4h4vs")
 volume_db = -10.0
 
 [node name="button_collision" type="StaticBody2D" parent="."]
@@ -364,19 +365,19 @@ position = Vector2(0.615254, 0.615254)
 [node name="Sprite2D" type="Sprite2D" parent="squares/big"]
 modulate = Color(0.877616, 0.877616, 0.877616, 1)
 position = Vector2(39, 39)
-texture = ExtResource("11_frs5l")
+texture = ExtResource("12_fd0ao")
 
 [node name="Sprite2D2" type="Sprite2D" parent="squares/big"]
 position = Vector2(39, 321)
-texture = ExtResource("11_frs5l")
+texture = ExtResource("12_fd0ao")
 
 [node name="Sprite2D3" type="Sprite2D" parent="squares/big"]
 position = Vector2(441, 39)
-texture = ExtResource("11_frs5l")
+texture = ExtResource("12_fd0ao")
 
 [node name="Sprite2D4" type="Sprite2D" parent="squares/big"]
 position = Vector2(441, 321)
-texture = ExtResource("11_frs5l")
+texture = ExtResource("12_fd0ao")
 
 [node name="med" type="Node2D" parent="squares"]
 modulate = Color(0.205117, 0.205117, 0.205117, 1)
@@ -384,19 +385,19 @@ position = Vector2(0.79, 0.79)
 
 [node name="Sprite2D" type="Sprite2D" parent="squares/med"]
 position = Vector2(39, 94)
-texture = ExtResource("12_mynnq")
+texture = ExtResource("13_g3bb0")
 
 [node name="Sprite2D2" type="Sprite2D" parent="squares/med"]
 position = Vector2(39, 266)
-texture = ExtResource("12_mynnq")
+texture = ExtResource("13_g3bb0")
 
 [node name="Sprite2D3" type="Sprite2D" parent="squares/med"]
 position = Vector2(441, 94)
-texture = ExtResource("12_mynnq")
+texture = ExtResource("13_g3bb0")
 
 [node name="Sprite2D4" type="Sprite2D" parent="squares/med"]
 position = Vector2(441, 266)
-texture = ExtResource("12_mynnq")
+texture = ExtResource("13_g3bb0")
 
 [node name="little" type="Node2D" parent="squares"]
 modulate = Color(0.172833, 0.172833, 0.172833, 1)
@@ -404,34 +405,34 @@ position = Vector2(0.526667, 0.526667)
 
 [node name="Sprite2D" type="Sprite2D" parent="squares/little"]
 position = Vector2(39, 133)
-texture = ExtResource("13_e8tpv")
+texture = ExtResource("14_4crdw")
 
 [node name="Sprite2D2" type="Sprite2D" parent="squares/little"]
 position = Vector2(39, 164)
-texture = ExtResource("13_e8tpv")
+texture = ExtResource("14_4crdw")
 
 [node name="Sprite2D3" type="Sprite2D" parent="squares/little"]
 position = Vector2(39, 195)
-texture = ExtResource("13_e8tpv")
+texture = ExtResource("14_4crdw")
 
 [node name="Sprite2D4" type="Sprite2D" parent="squares/little"]
 position = Vector2(39, 226)
-texture = ExtResource("13_e8tpv")
+texture = ExtResource("14_4crdw")
 
 [node name="Sprite2D5" type="Sprite2D" parent="squares/little"]
 position = Vector2(441, 133)
-texture = ExtResource("13_e8tpv")
+texture = ExtResource("14_4crdw")
 
 [node name="Sprite2D6" type="Sprite2D" parent="squares/little"]
 position = Vector2(441, 164)
-texture = ExtResource("13_e8tpv")
+texture = ExtResource("14_4crdw")
 
 [node name="Sprite2D7" type="Sprite2D" parent="squares/little"]
 position = Vector2(441, 195)
-texture = ExtResource("13_e8tpv")
+texture = ExtResource("14_4crdw")
 
 [node name="Sprite2D8" type="Sprite2D" parent="squares/little"]
 position = Vector2(441, 226)
-texture = ExtResource("13_e8tpv")
+texture = ExtResource("14_4crdw")
 
 [connection signal="area_entered" from="START" to="." method="_on_start_area_entered"]
