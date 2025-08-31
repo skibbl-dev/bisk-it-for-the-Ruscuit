@@ -1,19 +1,24 @@
-[gd_scene load_steps=22 format=3 uid="uid://rsgpxupbcy8a"]
+[gd_scene load_steps=27 format=3 uid="uid://rsgpxupbcy8a"]
 
 [ext_resource type="Script" uid="uid://drdvmo3fesqq6" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bitjw4ddfb7do" path="res://objects/Player.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://sr188lxw1nlt" path="res://objects/shadow_shader.tscn" id="2_lnu2h"]
 [ext_resource type="Script" uid="uid://cee2638n8ojsx" path="res://addons/conductor/conducted_animation_player.gd" id="2_p57ef"]
 [ext_resource type="Script" uid="uid://dx4i7rpif133h" path="res://scripts/enemy_spawner.gd" id="5_iywne"]
-[ext_resource type="PackedScene" uid="uid://nw5sp76j1edc" path="res://objects/waves/wave_0_0.tscn" id="6_gee14"]
-[ext_resource type="PackedScene" uid="uid://2yki4b8tm6sm" path="res://objects/waves/wave_0_1.tscn" id="7_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://nw5sp76j1edc" path="res://objects/waves/1triangle.tscn" id="6_gee14"]
+[ext_resource type="PackedScene" uid="uid://2yki4b8tm6sm" path="res://objects/waves/3triangle.tscn" id="7_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://cql8hos43jppj" path="res://assets/WaveCompleted.png" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://b7cea8fw8lwad" path="res://objects/waves/2triangle1circle.tscn" id="8_ir15t"]
 [ext_resource type="AudioStream" uid="uid://bwfm4grdgr0pn" path="res://assets/music/mista green rough loop.wav" id="8_trtic"]
 [ext_resource type="Texture2D" uid="uid://dcfcddemtxxmy" path="res://assets/RunIndicatorbackground.png" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://to5q1rvwkhe8" path="res://objects/waves/guard.tscn" id="9_ca42v"]
 [ext_resource type="AudioStream" uid="uid://dj02jvy0mkkui" path="res://assets/music/Blackout.wav" id="9_ir15t"]
-[ext_resource type="AudioStream" uid="uid://vjc3o6q8omfm" path="res://assets/music/Rumble at the Gates.ogg" id="10_ca42v"]
+[ext_resource type="PackedScene" uid="uid://bgc5lbwaey87e" path="res://objects/waves/2stretch.tscn" id="10_rysoc"]
 [ext_resource type="FontFile" uid="uid://en8i7l5eksif" path="res://assets/m6x11.ttf" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://nqec0bspmffj" path="res://objects/MouseCursor.tscn" id="11_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://dwxvvsjludv3f" path="res://objects/waves/2circle.tscn" id="11_ssvqc"]
+[ext_resource type="PackedScene" uid="uid://xif26t3ql6tj" path="res://objects/waves/stretchtrianglecircle.tscn" id="12_264po"]
+[ext_resource type="PackedScene" uid="uid://ba6rr3sbccjnb" path="res://objects/waves/hard.tscn" id="13_1kice"]
 
 [sub_resource type="Animation" id="Animation_gee14"]
 length = 0.001
@@ -215,9 +220,9 @@ shape = SubResource("RectangleShape2D_lbhrr")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("5_iywne")
-enemy_waves = Array[Array]([[ExtResource("6_gee14")], [ExtResource("7_0tnpc")], [ExtResource("6_gee14")], [ExtResource("6_gee14")]])
-wave_streams = Array[AudioStream]([ExtResource("8_trtic"), ExtResource("8_trtic"), ExtResource("8_trtic"), ExtResource("8_trtic"), ExtResource("9_ir15t"), ExtResource("9_ir15t"), ExtResource("9_ir15t"), ExtResource("9_ir15t"), ExtResource("9_ir15t"), ExtResource("10_ca42v"), ExtResource("10_ca42v"), ExtResource("10_ca42v"), ExtResource("10_ca42v"), ExtResource("10_ca42v"), ExtResource("10_ca42v"), ExtResource("10_ca42v")])
-wave_bpms = Array[float]([162.0, 162.0, 162.0, 162.0, 170.0, 170.0, 170.0, 170.0, 170.0, 190.0, 190.0, 190.0, 190.0, 190.0, 190.0, 190.0])
+enemy_waves = Array[Array]([[ExtResource("6_gee14")], [ExtResource("6_gee14")], [ExtResource("7_0tnpc"), ExtResource("8_ir15t")], [ExtResource("8_ir15t")], [ExtResource("7_0tnpc")], [ExtResource("9_ca42v")], [ExtResource("8_ir15t")], [ExtResource("10_rysoc")], [ExtResource("9_ca42v")], [ExtResource("11_ssvqc"), ExtResource("10_rysoc"), ExtResource("7_0tnpc")], [ExtResource("11_ssvqc"), ExtResource("10_rysoc"), ExtResource("7_0tnpc")], [ExtResource("11_ssvqc"), ExtResource("10_rysoc"), ExtResource("7_0tnpc")], [ExtResource("12_264po"), ExtResource("11_ssvqc")], [ExtResource("9_ca42v")], [ExtResource("11_ssvqc"), ExtResource("10_rysoc"), ExtResource("7_0tnpc"), ExtResource("12_264po"), ExtResource("13_1kice")], [ExtResource("11_ssvqc"), ExtResource("10_rysoc"), ExtResource("7_0tnpc"), ExtResource("12_264po"), ExtResource("13_1kice")]])
+wave_streams = Array[AudioStream]([ExtResource("8_trtic"), ExtResource("8_trtic"), ExtResource("8_trtic"), ExtResource("8_trtic"), ExtResource("8_trtic"), ExtResource("8_trtic"), ExtResource("8_trtic"), ExtResource("8_trtic"), ExtResource("9_ir15t"), ExtResource("9_ir15t"), ExtResource("9_ir15t"), ExtResource("9_ir15t"), ExtResource("9_ir15t"), ExtResource("9_ir15t"), ExtResource("9_ir15t"), ExtResource("9_ir15t")])
+wave_bpms = Array[float]([162.0, 162.0, 162.0, 162.0, 162.0, 162.0, 162.0, 162.0, 170.0, 170.0, 170.0, 170.0, 170.0, 170.0, 170.0, 170.0])
 
 [node name="WaveTransition" type="AnimationPlayer" parent="."]
 libraries = {

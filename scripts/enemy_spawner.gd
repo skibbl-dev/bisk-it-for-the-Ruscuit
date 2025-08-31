@@ -9,8 +9,11 @@ var current_wave: Node2D
 #@onready var wave_label: Label = $WaveLabel
 
 func spawn_next_wave():
+	var wave_to_use = wave
 	if(!enemy_waves.size()>wave):
-		return # IF TEHRE ARE NO MORE WAVES, JUST GIVE UP>
+		wave_to_use = wave_streams.size()-1
+		# Just replay last wave
+		#return # IF TEHRE ARE NO MORE WAVES, JUST GIVE UP>
 	
 	if(current_wave != null):
 		current_wave.queue_free()

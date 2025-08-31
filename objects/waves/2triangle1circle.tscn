@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7cea8fw8lwad"]
+
+[ext_resource type="Script" uid="uid://cmn1ul2kuj1ay" path="res://scripts/wave.gd" id="1_8o6aq"]
+[ext_resource type="PackedScene" uid="uid://ba5bq2onmtl32" path="res://objects/enemies/BasicTriangleEnemy.tscn" id="2_72ger"]
+[ext_resource type="PackedScene" uid="uid://d0bavx3hgiyhd" path="res://objects/enemies/BasicCircularEnemy.tscn" id="3_72ger"]
+
+[node name="wave_0_2" type="Node2D"]
+script = ExtResource("1_8o6aq")
+
+[node name="RandomizePositions" type="Node2D" parent="."]
+
+[node name="TriangleEnemy" parent="RandomizePositions" instance=ExtResource("2_72ger")]
+
+[node name="TriangleEnemy2" parent="RandomizePositions" instance=ExtResource("2_72ger")]
+
+[node name="Enemy" parent="." instance=ExtResource("3_72ger")]
+position = Vector2(232, 172)

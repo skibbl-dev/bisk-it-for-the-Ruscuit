@@ -36,7 +36,8 @@ func _loop():
 	Conductor.play()
 
 func enemy_died():
-	if(enemy_spawner.current_wave.get_children().size() <= 1):
+	await get_tree().process_frame
+	if(enemy_spawner.current_wave.get_children().size() < 1):
 		# instead, we should do an animation
 		# then when animation finished spawn spawn_next_wave
 		#enemy_spawner.spawn_next_wave()

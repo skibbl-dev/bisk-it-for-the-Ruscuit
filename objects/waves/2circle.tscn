@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwxvvsjludv3f"]
+
+[ext_resource type="Script" uid="uid://cmn1ul2kuj1ay" path="res://scripts/wave.gd" id="1_xu6y1"]
+[ext_resource type="PackedScene" uid="uid://d0bavx3hgiyhd" path="res://objects/enemies/BasicCircularEnemy.tscn" id="2_o73n0"]
+
+[node name="wave_0_4" type="Node2D"]
+script = ExtResource("1_xu6y1")
+
+[node name="Enemy" parent="." instance=ExtResource("2_o73n0")]
+position = Vector2(160, 180)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_o73n0")]
+position = Vector2(320, 180)

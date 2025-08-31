@@ -318,7 +318,7 @@ collision_mask = 4
 [node name="StartParticles" type="GPUParticles2D" parent="START"]
 scale = Vector2(0.909091, 0.909091)
 emitting = false
-amount = 128
+amount = 64
 lifetime = 0.2
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_frs5l")
@@ -328,7 +328,7 @@ modulate = Color(0.233925, 0.233925, 0.233925, 1)
 visibility_layer = 2
 scale = Vector2(0.909091, 0.909091)
 emitting = false
-amount = 150
+amount = 75
 lifetime = 0.2
 one_shot = true
 collision_base_size = 18.16

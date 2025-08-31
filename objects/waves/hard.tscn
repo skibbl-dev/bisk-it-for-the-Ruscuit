@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba6rr3sbccjnb"]
+
+[ext_resource type="Script" uid="uid://cmn1ul2kuj1ay" path="res://scripts/wave.gd" id="1_2e13s"]
+[ext_resource type="PackedScene" uid="uid://ba5bq2onmtl32" path="res://objects/enemies/BasicTriangleEnemy.tscn" id="2_ny5i8"]
+[ext_resource type="PackedScene" uid="uid://d0bavx3hgiyhd" path="res://objects/enemies/BasicCircularEnemy.tscn" id="3_bhxht"]
+[ext_resource type="PackedScene" uid="uid://c2l32b6uej1of" path="res://objects/enemies/stretchEnemy.tscn" id="4_tlnvs"]
+
+[node name="wave_0_1" type="Node2D"]
+script = ExtResource("1_2e13s")
+
+[node name="RandomizePositions" type="Node2D" parent="."]
+
+[node name="TriangleEnemy" parent="RandomizePositions" instance=ExtResource("2_ny5i8")]
+
+[node name="TriangleEnemy2" parent="RandomizePositions" instance=ExtResource("2_ny5i8")]
+
+[node name="Enemy" parent="RandomizePositions" instance=ExtResource("3_bhxht")]
+
+[node name="Enemy2" parent="RandomizePositions" instance=ExtResource("3_bhxht")]
+
+[node name="StretchEnemy" parent="RandomizePositions" instance=ExtResource("4_tlnvs")]
+
+[node name="StretchEnemy2" parent="RandomizePositions" instance=ExtResource("4_tlnvs")]
